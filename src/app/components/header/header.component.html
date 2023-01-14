@@ -1,7 +1,23 @@
-<header>
-		<ul>
-			<li></li>
-			<li></li>
-			<li></li>
-		</ul>
-</header>
+<mat-toolbar fxLayoutAlign="space-between center">
+	<button mat-icon-button (click)="opened=!opened">
+		<span class="material-icons">
+			menu
+		</span>
+	</button>
+	<h1>dashboard</h1>
+	<button mat-icon-button>
+		<span class="material-icons">
+			people
+		</span>
+	</button>
+</mat-toolbar>
+<mat-sidenav-container>
+	<mat-sidenav [(opened)]="opened">
+		<a>home</a>
+	</mat-sidenav>
+	<mat-sidenav-content>
+		<router-outlet>
+
+		</router-outlet>
+	</mat-sidenav-content>
+</mat-sidenav-container>
