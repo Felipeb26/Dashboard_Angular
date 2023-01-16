@@ -1,23 +1,47 @@
-<mat-toolbar fxLayoutAlign="space-between center">
+<mat-toolbar >
 	<button mat-icon-button (click)="opened=!opened">
 		<span class="material-icons">
 			menu
 		</span>
 	</button>
-	<h1>dashboard</h1>
-	<button mat-icon-button>
+	<h1 routerLink="">dashboard</h1>
+	<button mat-icon-button [mat-menu-trigger-for]="menu">
 		<span class="material-icons">
 			people
 		</span>
 	</button>
+	<mat-menu #menu="matMenu" backdropClass="menu">
+		<button mat-menu-item routerLink="login">
+			<span class="material-icons">
+				person
+			</span>
+			login
+		</button>
+		<button mat-menu-item (click)="sair()">
+			<span class="material-icons">
+				logout
+			</span>
+			logout
+		</button>
+	</mat-menu>
 </mat-toolbar>
 <mat-sidenav-container>
 	<mat-sidenav [(opened)]="opened">
-		<a>home</a>
+		<button mat-button routerLink="">
+			<span class="material-icons">
+				home
+			</span>
+			Home
+		</button>
+		<button mat-button routerLink="data">
+			<span class="material-icons">
+				analytics
+			</span>
+			Dados
+		</button>
 	</mat-sidenav>
 	<mat-sidenav-content>
 		<router-outlet>
-
 		</router-outlet>
 	</mat-sidenav-content>
 </mat-sidenav-container>

@@ -6,5 +6,51 @@
 	text-decoration: none;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+:root {
+	// colors
+	--primary: rgb(34, 34, 34);
+	--primaryT: rgba(34, 34, 34, 0.700);
+	--secondary: rgb(225, 225, 225);
+	--contextHover: rgb(0, 220, 220);
+	// signals
+	--alert: rgb(235, 20, 20);
+	--warninng: rgb(255, 255, 0);
+	--ok: rgb(0, 150, 0);
+}
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+::-webkit-scrollbar{
+	width:  0.5rem;
+}
+
+::-webkit-scrollbar-thumb{
+	background:  var(--secondary);
+}
+
+::-webkit-scrollbar-track {
+	background:  var(--primaryT);
+}
+
+.mat-card:not([class*=mat-elevation-z]) {
+	box-shadow: 0 0 0.5rem var(--primary);
+	border: 1px solid var(--primary);
+}
+
+
+.menu+* .mat-menu-panel {
+	background: var(--primaryT);
+	border: 2px solid var(--primary);
+
+	& button {
+		color: var(--secondary);
+	}
+}

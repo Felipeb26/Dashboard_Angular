@@ -1,8 +1,44 @@
-mat-sidenav-container{
-	height:  calc(205vh - 115vh);
+mat-toolbar {
+	display: flex;
+	justify-content: space-between;
+	background: var(--primary);
+	color: var(--secondary);
+
+	& h1 {
+		text-transform: uppercase;
+		letter-spacing: 0.1rem;
+		font-weight: bold;
+		font-style: italic;
+		cursor: pointer;
+	}
 }
 
-mat-sidenav{
-	width:  200px;
-	
+mat-menu {
+	& button {
+		text-transform: capitalize;
+		font-weight: bold;
+		width: 100%;
+	}
+}
+
+mat-sidenav-container {
+	height: calc(205vh - 115vh);
+}
+
+mat-sidenav {
+	width: 10rem;
+	display: flex;
+	background: var(--primaryT);
+	color: var(--secondary);
+
+	& button {
+		width: 90%;
+		border-radius: 5px;
+		margin: 5% 5%;
+	}
+}
+
+mat-sidenav-content {
+	margin: 2rem 0 0 0;
+	padding: 1rem 0 0 0;
 }

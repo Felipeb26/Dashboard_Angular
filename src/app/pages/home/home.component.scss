@@ -1,0 +1,14 @@
+.charts {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+
+	& mat-card {
+		flex: 1;
+		margin:  0 2rem;
+	}
+}
+
+.year{
+	margin:  5rem 0;
+}

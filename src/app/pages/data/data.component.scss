@@ -1,0 +1,36 @@
+.data {
+	display: flex;
+	flex-wrap: wrap;
+
+	mat-card {
+		margin: 1% 5%;
+		flex: 1;
+	}
+
+	mat-card-title {
+		text-transform: capitalize;
+		text-align: center;
+	}
+
+	mat-card-content {
+		display: flex;
+		max-height: 15rem;
+		width:  100%;
+		flex-direction: column;
+		align-items: center;
+		overflow-y: scroll;
+	}
+}
+
+.content {
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
+	font-weight: bold;
+	font-size: 0.75rem;
+
+	width: 90%;
+	margin: 0.1rem 0;
+	padding: 0.8rem 0.5rem 0 0.5rem;
+	border-radius: 5px;
+	border: 1px solid var(--primary);
+}

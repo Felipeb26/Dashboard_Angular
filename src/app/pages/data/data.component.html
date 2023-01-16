@@ -1,0 +1,40 @@
+<div class="data">
+	<mat-card>
+		<mat-card-title>inicio</mat-card-title>
+		<mat-card-content id="todo" [cdkDropListData]="todo" [cdkDropListConnectedTo]="['finale','madeit']" cdkDropList
+			(cdkDropListDropped)="drop($event)">
+			<div class="content" *ngFor="let item of todo" cdkDrag>
+				{{item.comida}}
+			</div>
+			<div class="content" *ngFor="let item of todo">
+				{{item.valor+item.valor}}
+			</div>
+		</mat-card-content>
+	</mat-card>
+
+	<mat-card>
+		<mat-card-title>meio</mat-card-title>
+		<mat-card-content id="madeit" [cdkDropListData]="madeit" [cdkDropListConnectedTo]="['todo','finale']"
+			cdkDropList (cdkDropListDropped)="drop($event)">
+			<div class="content" *ngFor="let item of madeit" cdkDrag>
+				{{item.comida}}
+			</div>
+			<div class="content" *ngFor="let item of todo">
+				{{item.valor+item.valor}}
+			</div>
+		</mat-card-content>
+	</mat-card>
+
+	<mat-card>
+		<mat-card-title>fim</mat-card-title>
+		<mat-card-content id="finale" [cdkDropListData]="finale" [cdkDropListConnectedTo]="['todo','madeit']"
+			cdkDropList (cdkDropListDropped)="drop($event)">
+			<div class="content" *ngFor="let item of finale" cdkDrag>
+				{{item.comida}}
+			</div>
+			<div class="content" *ngFor="let item of todo">
+				{{item.valor+item.valor}}
+			</div>
+		</mat-card-content>
+	</mat-card>
+</div>
