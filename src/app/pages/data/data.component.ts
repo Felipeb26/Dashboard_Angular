@@ -8,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DataComponent implements OnInit {
 
-	soma: any
+	somaTodo: Number = 0;
+	somaMadeit: Number = 0;
+	somaFinale: Number = 0;
 
 	todo: Array<any> = [{
 		comida: "lazanha",
@@ -49,25 +51,34 @@ export class DataComponent implements OnInit {
 	constructor () { }
 
 	ngOnInit(): void {
+		this.setValue();
 	}
 
-	drop(event: CdkDragDrop<string[]>) {
+	drop(event: CdkDragDrop<any[]>) {
 		if (event.previousContainer === event.container) {
 			moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-			event.container.data.map(it => {
-				for (var i = 0; i < event.container.data.length; i++) {
-					var data: string = event.container.data[i].toString();
-					this.soma += data.substring(data.indexOf(":") + 1, data.length)
-				};
-			})
 		} else {
 			transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex);
+			this.setValue()
 		}
-		console.table(this.soma)
-		console.log(this.todo)
 	}
 
 	setValue() {
-
+		this.somaTodo = 0;
+		this.somaFinale = 0;
+		this.somaMadeit = 0;
+		
+		this.todo.map(it => {
+			const data = JSON.parse(JSON.stringify(it));
+			this.somaTodo += data.valor;
+		})
+		this.madeit.map(it => {
+			const data = JSON.parse(JSON.stringify(it));
+			this.somaMadeit += data.valor;
+		})
+		this.finale.map(it => {
+			const data = JSON.parse(JSON.stringify(it));
+			this.somaFinale += data.valor;
+		})
 	}
 }

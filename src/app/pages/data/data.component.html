@@ -6,8 +6,8 @@
 			<div class="content" *ngFor="let item of todo" cdkDrag>
 				{{item.comida}}
 			</div>
-			<div class="content" *ngFor="let item of todo">
-				{{item.valor+item.valor}}
+			<div class="content">
+				{{somaTodo}}
 			</div>
 		</mat-card-content>
 	</mat-card>
@@ -19,8 +19,8 @@
 			<div class="content" *ngFor="let item of madeit" cdkDrag>
 				{{item.comida}}
 			</div>
-			<div class="content" *ngFor="let item of todo">
-				{{item.valor+item.valor}}
+			<div class="content">
+				{{somaMadeit}}
 			</div>
 		</mat-card-content>
 	</mat-card>
@@ -32,8 +32,8 @@
 			<div class="content" *ngFor="let item of finale" cdkDrag>
 				{{item.comida}}
 			</div>
-			<div class="content" *ngFor="let item of todo">
-				{{item.valor+item.valor}}
+			<div class="content">
+				{{somaFinale}}
 			</div>
 		</mat-card-content>
 	</mat-card>
