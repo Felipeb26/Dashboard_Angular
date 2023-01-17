@@ -1,3 +1,4 @@
+import { ChartService } from './../../components/service/chart.service';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 
@@ -48,9 +49,10 @@ export class DataComponent implements OnInit {
 	}
 	]
 
-	constructor () { }
+	constructor (private chart:ChartService) { }
 
 	ngOnInit(): void {
+		this.chart.renderChart("piechart")
 		this.setValue();
 	}
 
@@ -67,7 +69,7 @@ export class DataComponent implements OnInit {
 		this.somaTodo = 0;
 		this.somaFinale = 0;
 		this.somaMadeit = 0;
-		
+
 		this.todo.map(it => {
 			const data = JSON.parse(JSON.stringify(it));
 			this.somaTodo += data.valor;
