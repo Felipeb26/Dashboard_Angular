@@ -1,4 +1,5 @@
 import { DragDropModule } from "@angular/cdk/drag-drop";
+import { FormsModule } from '@angular/forms';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from "@angular/material/button";
@@ -8,6 +9,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatInputModule} from '@angular/material/input';
 //components
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -36,7 +38,9 @@ import { FlipCardModule } from "./flip-card/flip-card.module";
 		MatCardModule,
 		MatMenuModule,
 		ScrollingModule,
-		DragDropModule
+		DragDropModule,
+		MatInputModule,
+		FormsModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]

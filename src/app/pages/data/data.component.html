@@ -11,6 +11,13 @@
 					{{somaTodo}}
 				</div>
 			</mat-card-content>
+			<mat-form-field appearance="fill">
+				<mat-label>Campo</mat-label>
+				<input id="todoInput" matInput type="text" placeholder="separe o valor por ;" [(ngModel)]="todoA">
+				<button matSuffix mat-icon-button (click)="addValue()">
+					<span class="material-icons">check_circle</span>
+				</button>
+			</mat-form-field>
 		</flip-card-front>
 		<flip-card-back>
 			<canvas id="piechart"></canvas>
@@ -32,7 +39,7 @@
 			</mat-card-content>
 		</flip-card-front>
 		<flip-card-back>
-			<h2>back</h2>
+			<canvas id="madeits"></canvas>
 		</flip-card-back>
 	</app-flip-card>
 
@@ -50,7 +57,7 @@
 			</mat-card-content>
 		</flip-card-front>
 		<flip-card-back>
-			<h2>back</h2>
+			<canvas id="finales"></canvas>
 		</flip-card-back>
 	</app-flip-card>
 
