@@ -7,17 +7,38 @@
 				<div class="content" *ngFor="let item of todo" cdkDrag>
 					{{item.comida}}
 				</div>
-				<div class="content">
-					{{somaTodo}}
-				</div>
 			</mat-card-content>
-			<mat-form-field appearance="fill">
-				<mat-label>Campo</mat-label>
-				<input id="todoInput" matInput type="text" placeholder="separe o valor por ;" [(ngModel)]="todoA">
-				<button matSuffix mat-icon-button (click)="addValue()">
-					<span class="material-icons">check_circle</span>
-				</button>
-			</mat-form-field>
+			<span class="material-icons">
+				add_circle_outline
+			</span>
+			<!-- <mat-card-actions>
+				<div class="actions">
+					<div class="content">
+						R$ {{somaTodo}}
+					</div>
+					<div class="content">
+						{{todo.length}} Itens;
+					</div>
+				</div>
+				<div class="inputs">
+					<mat-form-field appearance="fill">
+						<mat-label>Campo</mat-label>
+						<input id="todoInput" matInput type="text" placeholder="separe o valor por ;"
+							[(ngModel)]="todoA">
+						<button matSuffix mat-icon-button (click)="addValue()">
+							<span class="material-icons">check_circle</span>
+						</button>
+					</mat-form-field>
+					<mat-form-field appearance="fill">
+						<mat-label>Campo</mat-label>
+						<input id="todoInput" matInput type="text" placeholder="separe o valor por ;"
+							[(ngModel)]="todoA">
+						<button matSuffix mat-icon-button (click)="addValue()">
+							<span class="material-icons">check_circle</span>
+						</button>
+					</mat-form-field>
+				</div>
+			</mat-card-actions> -->
 		</flip-card-front>
 		<flip-card-back>
 			<canvas id="piechart"></canvas>
@@ -33,10 +54,35 @@
 				<div class="content" *ngFor="let item of madeit" cdkDrag>
 					{{item.comida}}
 				</div>
-				<div class="content">
-					{{somaMadeit}}
-				</div>
 			</mat-card-content>
+			<mat-card-actions>
+				<div class="actions">
+					<div class="content">
+						R$ {{somaMadeit}}
+					</div>
+					<div class="content">
+						{{madeit.length}} Itens;
+					</div>
+				</div>
+				<div class="inputs">
+					<mat-form-field appearance="fill">
+						<mat-label>Campo</mat-label>
+						<input id="todoInput" matInput type="text" placeholder="separe o valor por ;"
+							[(ngModel)]="todoA">
+						<button matSuffix mat-icon-button (click)="addValue()">
+							<span class="material-icons">check_circle</span>
+						</button>
+					</mat-form-field>
+					<mat-form-field appearance="fill">
+						<mat-label>Campo</mat-label>
+						<input id="todoInput" matInput type="text" placeholder="separe o valor por ;"
+							[(ngModel)]="todoA">
+						<button matSuffix mat-icon-button (click)="addValue()">
+							<span class="material-icons">check_circle</span>
+						</button>
+					</mat-form-field>
+				</div>
+			</mat-card-actions>
 		</flip-card-front>
 		<flip-card-back>
 			<canvas id="madeits"></canvas>
@@ -51,10 +97,35 @@
 				<div class="content" *ngFor="let item of finale" cdkDrag>
 					{{item.comida}}
 				</div>
-				<div class="content">
-					{{somaFinale}}
-				</div>
 			</mat-card-content>
+			<mat-card-actions>
+				<div class="actions">
+					<div class="content">
+						R$ {{somaFinale}}
+					</div>
+					<div class="content">
+						{{finale.length}} Itens;
+					</div>
+				</div>
+				<div class="inputs">
+					<mat-form-field appearance="fill">
+						<mat-label>Campo</mat-label>
+						<input id="todoInput" matInput type="text" placeholder="separe o valor por ;"
+							[(ngModel)]="todoA">
+						<button matSuffix mat-icon-button (click)="addValue()">
+							<span class="material-icons">check_circle</span>
+						</button>
+					</mat-form-field>
+					<mat-form-field appearance="fill">
+						<mat-label>Campo</mat-label>
+						<input id="todoInput" matInput type="text" placeholder="separe o valor por ;"
+							[(ngModel)]="todoA">
+						<button matSuffix mat-icon-button (click)="addValue()">
+							<span class="material-icons">check_circle</span>
+						</button>
+					</mat-form-field>
+				</div>
+			</mat-card-actions>
 		</flip-card-front>
 		<flip-card-back>
 			<canvas id="finales"></canvas>
