@@ -8,11 +8,13 @@
 					{{item.comida}}
 				</div>
 			</mat-card-content>
-			<span class="material-icons">
-				add_circle_outline
-			</span>
-			<!-- <mat-card-actions>
-				<div class="actions">
+			<mat-card-actions>
+				<button mat-icon-button>
+					<span class="material-icons add">
+						add_circle_outline
+					</span>
+				</button>
+				<!-- <div class="actions">
 					<div class="content">
 						R$ {{somaTodo}}
 					</div>
@@ -37,8 +39,8 @@
 							<span class="material-icons">check_circle</span>
 						</button>
 					</mat-form-field>
-				</div>
-			</mat-card-actions> -->
+				</div> -->
+			</mat-card-actions>
 		</flip-card-front>
 		<flip-card-back>
 			<canvas id="piechart"></canvas>
