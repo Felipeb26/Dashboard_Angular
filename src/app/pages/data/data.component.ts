@@ -10,11 +10,11 @@ import { ChartService } from 'src/app/components/services/chart.service';
 })
 export class DataComponent implements OnInit {
 
-	todoA:string="";
+	todoA: string = "";
 
-	chartT:any;
-	chartM:any;
-	chartF:any;
+	chartT: any;
+	chartM: any;
+	chartF: any;
 
 	todoValues: any = [];
 	madeitValues: any = [];
@@ -83,17 +83,17 @@ export class DataComponent implements OnInit {
 	}
 
 	setValue() {
-		this.somaTodo=0;
-		this.somaMadeit=0;
-		this.somaFinale=0;
+		this.somaTodo = 0;
+		this.somaMadeit = 0;
+		this.somaFinale = 0;
 
-		this.todoValues=[];
-		this.madeitValues=[];
-		this.finaleValues=[];
+		this.todoValues = [];
+		this.madeitValues = [];
+		this.finaleValues = [];
 
-		this.todoKey=[];
-		this.madeitKey=[];
-		this.finaleKey=[];
+		this.todoKey = [];
+		this.madeitKey = [];
+		this.finaleKey = [];
 
 		this.convert.getValueFromArray(this.todo, this.todoValues, this.todoKey);
 		this.convert.getValueFromArray(this.madeit, this.madeitValues, this.madeitKey);
@@ -115,18 +115,18 @@ export class DataComponent implements OnInit {
 		});
 	}
 
-	createCharts(){
+	createCharts() {
 		this.chart.destoryChart(this.chartT);
 		this.chart.destoryChart(this.chartM);
 		this.chart.destoryChart(this.chartF);
-		this.chartT = this.chart.renderChart("piechart", "pie", this.todoValues, this.todoKey);
-		this.chartM=this.chart.renderChart("madeits", "pie", this.madeitValues, this.madeitKey);
-		this.chartF=this.chart.renderChart("finales", "pie", this.finaleValues, this.finaleKey);
+		this.chartT = this.chart.renderPieChart("piechart", "pie", this.todoValues, this.todoKey);
+		this.chartM = this.chart.renderPieChart("madeits", "pie", this.madeitValues, this.madeitKey);
+		this.chartF = this.chart.renderPieChart("finales", "pie", this.finaleValues, this.finaleKey);
 	}
 
-	addValue(){
+	addValue() {
 		const value = this.todoA.split(";");
-		const obj ={
+		const obj = {
 			comida: value[0],
 			valor: Number(value[1])
 		}

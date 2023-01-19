@@ -35,11 +35,12 @@
 
 	mat-card-actions .actions {
 		align-items: center;
-		display: flex;
 		width: 100%;
+		display: none;
 	}
 
 	mat-card-actions .inputs {
+		display: none;
 		height: 1rem;
 		padding: auto;
 	}
