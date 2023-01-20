@@ -17,4 +17,21 @@ mat-card {
 		display: flex;
 		flex-direction: column;
 	}
+	& .saveBtn{
+		box-shadow: 0 0 0.2rem 0.1rem var(--contextHover);
+		background: var(--primary);
+		color: var(--secondary);
+	}
+}
+
+mat-card-actions {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	& span{
+		margin: 0 2rem;
+		text-decoration: underline;
+		color: rgb(35, 172, 196);
+		cursor: pointer;
+	}
 }

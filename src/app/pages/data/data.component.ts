@@ -10,7 +10,18 @@ import { ChartService } from 'src/app/components/services/chart.service';
 })
 export class DataComponent implements OnInit {
 
-	todoA: string = "";
+	inputs = document.getElementsByClassName(
+		"inputs"
+	) as HTMLCollectionOf<HTMLElement>;
+	actionsInputs = document.getElementsByClassName(
+		"actions"
+	) as HTMLCollectionOf<HTMLElement>;
+	btnShowActions = document.getElementsByClassName(
+		"add"
+	) as HTMLCollectionOf<HTMLElement>;
+
+	key: string = "";
+	value: string = "";
 
 	chartT: any;
 	chartM: any;
@@ -24,9 +35,9 @@ export class DataComponent implements OnInit {
 	madeitKey: any = [];
 	finaleKey: any = [];
 
-	somaTodo: Number = 0;
-	somaMadeit: Number = 0;
-	somaFinale: Number = 0;
+	somaTodo: any = 0;
+	somaMadeit: any = 0;
+	somaFinale: any = 0;
 
 	todo: Array<any> = [{
 		comida: "lazanha",
@@ -124,15 +135,34 @@ export class DataComponent implements OnInit {
 		this.chartF = this.chart.renderPieChart("finales", "pie", this.finaleValues, this.finaleKey);
 	}
 
-	addValue() {
-		const value = this.todoA.split(";");
+	addValue(id: number) {
+		const chave = this.key;
+		const valor = this.value;
 		const obj = {
-			comida: value[0],
-			valor: Number(value[1])
+			comida: chave,
+			valor: Number(valor)
 		}
-		this.todo.push(obj);
+		if (id == 0) {
+			this.todo.push(obj);
+		} else if (id == 1) {
+			this.madeit.push(obj);
+		} else if (id == 2) {
+			this.finale.push(obj);
+		}
+
 		this.setValue()
 		this.createCharts()
-		console.log(this.todoA)
+		console.log(this.key)
+	}
+
+	reload() {
+		window.location.reload();
+	}
+
+	showInputs(event: any) {
+		this.inputs[event].style.display = "";
+		this.actionsInputs[event].style.display = "";
+		this.btnShowActions[event].style.display = "none";
+		console.log(event)
 	}
 }

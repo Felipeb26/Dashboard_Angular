@@ -5,16 +5,25 @@
 	<mat-card-content>
 		<mat-form-field appearance="fill">
 			<mat-label>nome</mat-label>
-			<input matInput type="text" placeholder="nome do usuario" name="" id="">
+			<input matInput type="text" placeholder="nome do usuario" [(ngModel)]="nome">
 		</mat-form-field>
 		<mat-form-field appearance="fill">
-			<input matInput type="text" placeholder="senha do usuario">
+			<mat-label>senha</mat-label>
+			<input matInput type="text" placeholder="senha do usuario" [(ngModel)]="senha">
 			<button matSuffix mat-icon-button>
 				<span class="material-icons">
 					visibility
 				</span>
 			</button>
 		</mat-form-field>
-		<button mat-raised-button type="submit" color="primary">salvar</button>
+		<button class="saveBtn" mat-raised-button type="submit" color="primary" (click)="login()">salvar</button>
 	</mat-card-content>
+	<mat-card-actions>
+		<span>
+			<a>esqueceu a senha?</a>
+		</span>
+		<span>
+			<a>fazer cadastro usuario?</a>
+		</span>
+	</mat-card-actions>
 </mat-card>

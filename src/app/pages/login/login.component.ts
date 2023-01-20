@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-login',
@@ -6,12 +7,24 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
 	image:string = "assets/imgs/user_default.png"
 
-	constructor () { }
+	nome:string="";
+	senha:string="";
+
+	constructor (private route:Router) { }
 
 	ngOnInit(): void {
+	}
+
+	login(){
+		if(this.nome.trim().length < 1 || this.senha.trim().length < 0){
+			return
+		}
+
+		if(this.nome.startsWith("felipe") && this.senha.startsWith("2626")){
+			this.route.navigate([""])
+		}
 	}
 
 }

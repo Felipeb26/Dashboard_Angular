@@ -1,7 +1,6 @@
 import { DragDropModule } from "@angular/cdk/drag-drop";
 import { FormsModule } from '@angular/forms';
 import { ScrollingModule } from '@angular/cdk/scrolling';
-import { NgModule } from '@angular/core';
 import { MatButtonModule } from "@angular/material/button";
 import { MatCardModule } from "@angular/material/card";
 import { MatMenuModule } from '@angular/material/menu';
@@ -9,7 +8,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
+import { NgModule, LOCALE_ID } from "@angular/core";
 //components
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +19,10 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 // Modules
 import { FlipCardModule } from "./flip-card/flip-card.module";
+import localePt from "@angular/common/locales/pt";
+import { registerLocaleData } from "@angular/common";
+
+registerLocaleData(localePt);
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -40,9 +44,12 @@ import { FlipCardModule } from "./flip-card/flip-card.module";
 		ScrollingModule,
 		DragDropModule,
 		MatInputModule,
-		FormsModule
+		FormsModule,
 	],
-	providers: [],
-	bootstrap: [AppComponent]
+	providers: [
+		{
+			provide: LOCALE_ID,
+			useValue: "pt-BR",
+		}], bootstrap: [AppComponent]
 })
 export class AppModule { }

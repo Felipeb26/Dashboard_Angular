@@ -1,4 +1,12 @@
 <div class="data">
+	<button class="resetBtn" mat-flat-button color="primary" (click)="reload()">
+		reset data
+	</button>
+	<button mat-icon-button>
+		<span class="material-icons resetBtn">
+			delete
+		</span>
+	</button>
 	<app-flip-card>
 		<flip-card-front>
 			<mat-card-title>inicio</mat-card-title>
@@ -9,14 +17,14 @@
 				</div>
 			</mat-card-content>
 			<mat-card-actions>
-				<button mat-icon-button class="add">
+				<button mat-icon-button class="add" name="inicio" (click)="showInputs(0)">
 					<span class="material-icons">
 						add_circle_outline
 					</span>
 				</button>
 				<div class="actions">
 					<div class="content">
-						R$ {{somaTodo}}
+						{{somaTodo | currency: 'BRL'}}
 					</div>
 					<div class="content">
 						{{todo.length}} Itens;
@@ -24,18 +32,15 @@
 				</div>
 				<div class="inputs">
 					<mat-form-field appearance="fill">
-						<mat-label>Campo</mat-label>
-						<input id="todoInput" matInput type="text" placeholder="separe o valor por ;"
-							[(ngModel)]="todoA">
-						<button matSuffix mat-icon-button (click)="addValue()">
-							<span class="material-icons">check_circle</span>
-						</button>
+						<mat-label>ITem</mat-label>
+						<input id="todoInput" matInput type="text" placeholder="insira o nome do item"
+							[(ngModel)]="key">
 					</mat-form-field>
 					<mat-form-field appearance="fill">
-						<mat-label>Campo</mat-label>
-						<input id="todoInput" matInput type="text" placeholder="separe o valor por ;"
-							[(ngModel)]="todoA">
-						<button matSuffix mat-icon-button (click)="addValue()">
+						<mat-label>Valor</mat-label>
+						<input id="todoInput" matInput type="text" placeholder="insira o valor aqui"
+							[(ngModel)]="value">
+						<button matSuffix mat-icon-button (click)="addValue(0)">
 							<span class="material-icons">check_circle</span>
 						</button>
 					</mat-form-field>
@@ -46,7 +51,6 @@
 			<canvas id="piechart"></canvas>
 		</flip-card-back>
 	</app-flip-card>
-
 
 	<app-flip-card>
 		<flip-card-front>
@@ -60,7 +64,7 @@
 			<mat-card-actions>
 				<div class="actions">
 					<div class="content">
-						R$ {{somaMadeit}}
+						{{somaMadeit |currency: 'BRL'}}
 					</div>
 					<div class="content">
 						{{madeit.length}} Itens;
@@ -70,16 +74,13 @@
 					<mat-form-field appearance="fill">
 						<mat-label>Campo</mat-label>
 						<input id="todoInput" matInput type="text" placeholder="separe o valor por ;"
-							[(ngModel)]="todoA">
-						<button matSuffix mat-icon-button (click)="addValue()">
-							<span class="material-icons">check_circle</span>
-						</button>
+							[(ngModel)]="key">
 					</mat-form-field>
 					<mat-form-field appearance="fill">
 						<mat-label>Campo</mat-label>
 						<input id="todoInput" matInput type="text" placeholder="separe o valor por ;"
-							[(ngModel)]="todoA">
-						<button matSuffix mat-icon-button (click)="addValue()">
+							[(ngModel)]="value">
+						<button matSuffix mat-icon-button (click)="addValue(1)">
 							<span class="material-icons">check_circle</span>
 						</button>
 					</mat-form-field>
@@ -103,7 +104,7 @@
 			<mat-card-actions>
 				<div class="actions">
 					<div class="content">
-						R$ {{somaFinale}}
+						R$ {{somaFinale| currency: 'BRL'}}
 					</div>
 					<div class="content">
 						{{finale.length}} Itens;
@@ -113,16 +114,13 @@
 					<mat-form-field appearance="fill">
 						<mat-label>Campo</mat-label>
 						<input id="todoInput" matInput type="text" placeholder="separe o valor por ;"
-							[(ngModel)]="todoA">
-						<button matSuffix mat-icon-button (click)="addValue()">
-							<span class="material-icons">check_circle</span>
-						</button>
+							[(ngModel)]="key">
 					</mat-form-field>
 					<mat-form-field appearance="fill">
 						<mat-label>Campo</mat-label>
 						<input id="todoInput" matInput type="text" placeholder="separe o valor por ;"
-							[(ngModel)]="todoA">
-						<button matSuffix mat-icon-button (click)="addValue()">
+							[(ngModel)]="value">
+						<button matSuffix mat-icon-button (click)="addValue(2)">
 							<span class="material-icons">check_circle</span>
 						</button>
 					</mat-form-field>

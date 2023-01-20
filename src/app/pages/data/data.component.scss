@@ -33,14 +33,8 @@
 		flex-direction: column;
 	}
 
-	mat-card-actions .actions {
-		align-items: center;
-		width: 100%;
-		display: none;
-	}
-
 	mat-card-actions .inputs {
-		display: none;
+		// display: none;
 		height: 1rem;
 		padding: auto;
 	}
@@ -66,6 +60,25 @@
 	}
 }
 
+.actions{
+	align-items: center;
+	width: 100%;
+	display: flex;
+}
+.inputs{
+	display: flex;
+	flex-direction: column;
+	& mat-form-field{
+		margin: 0 0.3rem 0 0.2rem;
+	}
+}
+
+.resetBtn{
+	margin: 0 0 0 2%;
+	height: 2rem;
+	z-index: 2;
+}
+
 .content {
 	background: var(--secondary);
 	text-transform: uppercase;
@@ -83,6 +96,7 @@
 }
 
 .add {
+	display: none;
 	border-radius: 50%;
 	margin: 3.5rem 0 0 0;
 }

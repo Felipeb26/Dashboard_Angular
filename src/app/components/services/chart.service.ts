@@ -15,8 +15,8 @@ export class ChartService {
 
 	constructor () { }
 
-	renderPieChart(id: string, types: any, data: any, labels: any) {
-		const myChart = new Chart(id, {
+	renderPieChart(tipo: string, types: any, data: any, labels: any) {
+		const myChart = new Chart(tipo, {
 			type: types,
 			data: {
 				labels: labels,
