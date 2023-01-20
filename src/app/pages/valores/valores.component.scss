@@ -1,0 +1,12 @@
+.banks {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	& mat-card {
+		position: relative;
+		margin: 0.8rem 0 1rem 3rem;
+		height: 15rem;
+		width: 12rem;
+	}
+}

@@ -2,7 +2,7 @@ mat-toolbar {
 	display: flex;
 	justify-content: space-between;
 	background: var(--primary);
-	color: var(--secondary);
+	color: var(--textColor);
 
 	& h1 {
 		text-transform: uppercase;
@@ -43,12 +43,14 @@ mat-sidenav-container {
 	height: calc(205vh - 115vh);
 
 	& button {
+		color: var(--textColor);
 		transition: all ease-in-out 0.5s;
 	}
 
 	& button:hover {
 		border-bottom: 3px solid var(--contextHover);
 		border-radius: 0;
+		color: var(--contextHover);
 	}
 }
 
@@ -56,9 +58,11 @@ mat-sidenav {
 	width: 10rem;
 	display: flex;
 	background: var(--primaryT);
-	color: var(--secondary);
+	color: var(--textColor);
 
 	& button {
+		border-bottom: 3px solid var(--textColor);
+		text-shadow: 0 0 15px var(--primary);
 		width: 90%;
 		border-radius: 5px;
 		margin: 5% 5%;
@@ -66,6 +70,7 @@ mat-sidenav {
 }
 
 mat-sidenav-content {
-	margin: 2rem 0 0 0;
+	background: var(--secondary);
+	// margin: 2rem 0 0 0;
 	padding: 1rem 0 0 0;
 }

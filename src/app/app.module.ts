@@ -10,6 +10,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { NgModule, LOCALE_ID } from "@angular/core";
+import { MatDatepickerModule } from '@angular/material/datepicker';
 //components
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +22,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { FlipCardModule } from "./flip-card/flip-card.module";
 import localePt from "@angular/common/locales/pt";
 import { registerLocaleData } from "@angular/common";
+import { ValoresComponent } from './pages/valores/valores.component';
+import { MatNativeDateModule } from "@angular/material/core";
 
 registerLocaleData(localePt);
 @NgModule({
@@ -29,7 +32,8 @@ registerLocaleData(localePt);
 		HeaderComponent,
 		HomeComponent,
 		LoginComponent,
-		DataComponent
+		DataComponent,
+		ValoresComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -45,6 +49,8 @@ registerLocaleData(localePt);
 		DragDropModule,
 		MatInputModule,
 		FormsModule,
+		MatDatepickerModule,
+		MatNativeDateModule
 	],
 	providers: [
 		{

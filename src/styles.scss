@@ -7,19 +7,37 @@
 }
 
 :root {
+
+	--textColor: rgb(243, 243, 243);
+
 	// colors
 	--primary: rgb(34, 34, 34);
 	--primaryT: rgba(34, 34, 34, 0.401);
 	--secondary: rgb(242, 242, 242);
 	--contextHover: rgb(0, 165, 165);
 	// signals
-	--alert: rgb(235, 20, 20);
+	--alert: rgb(212, 25, 25);
+	--warninng: rgb(225, 225, 0);
+	--ok: rgb(4, 129, 4);
+}
+
+html[dark] {
+
+	--textColor: rgb(12, 12, 12);
+
+	--primary: rgb(239, 239, 239);
+	--primaryT: rgba(184, 184, 184, 0.401);
+	--secondary: rgb(64, 64, 64);
+	--contextHover: rgb(21, 226, 226);
+	// signals
+	--alert: rgb(255, 0, 0);
 	--warninng: rgb(255, 255, 0);
-	--ok: rgb(0, 150, 0);
+	--ok: rgb(0, 255, 0);
 }
 
 html,
 body {
+	background: var(--secondary);
 	height: 100%;
 }
 
@@ -28,20 +46,20 @@ body {
 	font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-::-webkit-scrollbar{
-	width:  0.5rem;
+::-webkit-scrollbar {
+	width: 0.5rem;
 }
 
-::-webkit-scrollbar-thumb{
-	background:  var(--secondary);
+::-webkit-scrollbar-thumb {
+	background: var(--secondary);
 }
 
 ::-webkit-scrollbar-track {
-	background:  var(--primaryT);
+	background: var(--primaryT);
 }
 
 .mat-card:not([class*=mat-elevation-z]) {
-	box-shadow: 0 0 0.5rem var(--primary);
+	box-shadow: 0 0 0.3rem 0.1rem var(--primary);
 	border: 1px solid var(--primary);
 }
 

@@ -15,10 +15,19 @@ export class LoginComponent implements OnInit {
 	constructor (private route:Router) { }
 
 	ngOnInit(): void {
+		this.enterBtn()
 	}
+
+	enterBtn() {
+		window.addEventListener("keypress", () => {
+			this.login();
+		})
+	}
+
 
 	login(){
 		if(this.nome.trim().length < 1 || this.senha.trim().length < 0){
+			window.alert("inisira")
 			return
 		}
 

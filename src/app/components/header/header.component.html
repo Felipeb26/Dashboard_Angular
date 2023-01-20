@@ -23,6 +23,12 @@
 			</span>
 			logout
 		</button>
+		<button mat-menu-item (click)="changeState()">
+			<span class="material-icons">
+				{{state}}_mode
+			</span>
+			{{state}}
+		</button>
 	</mat-menu>
 </mat-toolbar>
 <mat-sidenav-container>
@@ -38,6 +44,12 @@
 				analytics
 			</span>
 			Dados
+		</button>
+		<button mat-button routerLink="entrada">
+			<span class="material-icons">
+				account_balance
+			</span>
+			Valores
 		</button>
 	</mat-sidenav>
 	<mat-sidenav-content>

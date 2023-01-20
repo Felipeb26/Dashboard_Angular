@@ -2,13 +2,15 @@
 	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
+	align-items: center;
 
 	app-flip-card {
-		margin: 1% 0 0 5%;
+		margin: 1% 0 0 4%;
 		flex: 1;
 	}
 
 	mat-card-title {
+		margin-top: 2%;
 		text-transform: capitalize;
 		text-align: center;
 	}
@@ -20,23 +22,16 @@
 		position: relative;
 		display: flex;
 		overflow-y: scroll;
-		max-height: 10rem;
+		max-height: 7rem;
 		width: 100%;
 		padding: 0.5rem 0;
 	}
 
 	mat-card-actions {
-		position: relative;
 		width: 100%;
 		display: flex;
 		align-items: center;
 		flex-direction: column;
-	}
-
-	mat-card-actions .inputs {
-		// display: none;
-		height: 1rem;
-		padding: auto;
 	}
 
 	mat-card-actions .content {
@@ -60,26 +55,40 @@
 	}
 }
 
-.actions{
+
+mat-card {
+	margin: 1%;
+	flex: 0.5;
+	display: flex;
+	flex-direction: column;
+	& button{
+		background: var(--primary);
+		color: var(--secondary);
+		margin: 0 5%;
+	}
+	& mat-form-field{
+		margin: 1.5rem 0;
+	}
+}
+
+.actions {
 	align-items: center;
 	width: 100%;
 	display: flex;
 }
-.inputs{
+
+.inputs {
 	display: flex;
 	flex-direction: column;
-	& mat-form-field{
+	margin-bottom: 2%;
+
+	& mat-form-field {
 		margin: 0 0.3rem 0 0.2rem;
 	}
 }
 
-.resetBtn{
-	margin: 0 0 0 2%;
-	height: 2rem;
-	z-index: 2;
-}
-
 .content {
+	color: var(--primary);
 	background: var(--secondary);
 	text-transform: uppercase;
 	letter-spacing: 0.1rem;
@@ -101,7 +110,7 @@
 	margin: 3.5rem 0 0 0;
 }
 
-.add:hover{
+.add:hover {
 	filter: drop-shadow(0 0 1rem 1rem var(--primary));
 	color: var(--contextHover);
 }

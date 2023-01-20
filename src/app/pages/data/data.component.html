@@ -1,12 +1,29 @@
 <div class="data">
-	<button class="resetBtn" mat-flat-button color="primary" (click)="reload()">
-		reset data
-	</button>
-	<button mat-icon-button>
-		<span class="material-icons resetBtn">
-			delete
-		</span>
-	</button>
+
+	<mat-card>
+		<div>
+			<button class="resetBtn" mat-flat-button (click)="reload()">
+				<span class="material-icons">
+					restart_alt
+				</span>
+			</button>
+			<button mat-button>
+				<span class="material-icons resetBtn">
+					delete
+				</span>
+			</button>
+		</div>
+		<mat-form-field appearance="fill">
+			<mat-label>Selecione uma data</mat-label>
+			<mat-date-range-input [rangePicker]="picker">
+				<input matStartDate placeholder="Data inicial">
+				<input matEndDate placeholder="Data final">
+			</mat-date-range-input>
+			<mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+			<mat-date-range-picker #picker></mat-date-range-picker>
+		</mat-form-field>
+	</mat-card>
+
 	<app-flip-card>
 		<flip-card-front>
 			<mat-card-title>inicio</mat-card-title>
@@ -73,8 +90,7 @@
 				<div class="inputs">
 					<mat-form-field appearance="fill">
 						<mat-label>Campo</mat-label>
-						<input id="todoInput" matInput type="text" placeholder="separe o valor por ;"
-							[(ngModel)]="key">
+						<input id="todoInput" matInput type="text" placeholder="separe o valor por ;" [(ngModel)]="key">
 					</mat-form-field>
 					<mat-form-field appearance="fill">
 						<mat-label>Campo</mat-label>
@@ -113,8 +129,7 @@
 				<div class="inputs">
 					<mat-form-field appearance="fill">
 						<mat-label>Campo</mat-label>
-						<input id="todoInput" matInput type="text" placeholder="separe o valor por ;"
-							[(ngModel)]="key">
+						<input id="todoInput" matInput type="text" placeholder="separe o valor por ;" [(ngModel)]="key">
 					</mat-form-field>
 					<mat-form-field appearance="fill">
 						<mat-label>Campo</mat-label>
