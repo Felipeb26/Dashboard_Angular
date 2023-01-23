@@ -6,7 +6,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { ValoresComponent } from './pages/valores/valores.component';
 
 const routes: Routes = [
-	{ path: "", component: HomeComponent },
+	{ path: "", redirectTo: "home", pathMatch: 'full' },
+	{ path: "home", component: HomeComponent },
 	{ path: "login", component: LoginComponent },
 	{ path: "data", component: DataComponent },
 	{ path: "entrada", component: ValoresComponent }
