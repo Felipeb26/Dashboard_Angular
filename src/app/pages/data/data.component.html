@@ -7,14 +7,15 @@
 					restart_alt
 				</span>
 			</button>
-			<button mat-button>
+			<button mat-button id="trash" cdkDropList [cdkDropListData]="trash"
+			(cdkDropListDropped)="drop($event)" (click)="delete()">
 				<span class="material-icons resetBtn">
 					delete
 				</span>
 			</button>
 		</div>
 		<mat-form-field appearance="fill">
-			<mat-label>Selecione uma data</mat-label>
+			<mat-label>Selecione duas datas</mat-label>
 			<mat-date-range-input [rangePicker]="picker">
 				<input matStartDate placeholder="Data inicial">
 				<input matEndDate placeholder="Data final">
@@ -22,12 +23,15 @@
 			<mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
 			<mat-date-range-picker #picker></mat-date-range-picker>
 		</mat-form-field>
+		<button mat-button (click)="searchPerDate()">
+			pesquisar
+		</button>
 	</mat-card>
 
 	<app-flip-card>
 		<flip-card-front>
 			<mat-card-title>inicio</mat-card-title>
-			<mat-card-content id="todo" [cdkDropListData]="todo" [cdkDropListConnectedTo]="['finale','madeit']"
+			<mat-card-content id="todo" [cdkDropListData]="todo" [cdkDropListConnectedTo]="['finale','madeit','trash']"
 				cdkDropList (cdkDropListDropped)="drop($event)">
 				<div class="content" *ngFor="let item of todo" cdkDrag>
 					{{item.comida}}
@@ -48,19 +52,28 @@
 					</div>
 				</div>
 				<div class="inputs">
-					<mat-form-field appearance="fill">
-						<mat-label>ITem</mat-label>
-						<input id="todoInput" matInput type="text" placeholder="insira o nome do item"
-							[(ngModel)]="key">
-					</mat-form-field>
-					<mat-form-field appearance="fill">
-						<mat-label>Valor</mat-label>
-						<input id="todoInput" matInput type="text" placeholder="insira o valor aqui"
-							[(ngModel)]="value">
-						<button matSuffix mat-icon-button (click)="addValue(0)">
+					<div class="sideInputBtn">
+						<mat-form-field appearance="fill">
+							<mat-label>ITem</mat-label>
+							<input id="todoInput" matInput type="text" placeholder="insira o nome do item"
+								[(ngModel)]="key">
+						</mat-form-field>
+						<button mat-icon-button (click)="hideInputs(0)">
+							<span class="material-icons">
+								remove
+							</span>
+						</button>
+					</div>
+					<div class="sideInputBtn">
+						<mat-form-field appearance="fill">
+							<mat-label>Valor</mat-label>
+							<input id="todoInput" matInput type="text" placeholder="insira o valor aqui"
+								[(ngModel)]="value">
+						</mat-form-field>
+						<button mat-icon-button (click)="addValue(0)">
 							<span class="material-icons">check_circle</span>
 						</button>
-					</mat-form-field>
+					</div>
 				</div>
 			</mat-card-actions>
 		</flip-card-front>
@@ -79,6 +92,11 @@
 				</div>
 			</mat-card-content>
 			<mat-card-actions>
+				<button mat-icon-button class="add" name="inicio" (click)="showInputs(1)">
+					<span class="material-icons">
+						add_circle_outline
+					</span>
+				</button>
 				<div class="actions">
 					<div class="content">
 						{{somaMadeit |currency: 'BRL'}}
@@ -88,18 +106,28 @@
 					</div>
 				</div>
 				<div class="inputs">
-					<mat-form-field appearance="fill">
-						<mat-label>Campo</mat-label>
-						<input id="todoInput" matInput type="text" placeholder="separe o valor por ;" [(ngModel)]="key">
-					</mat-form-field>
-					<mat-form-field appearance="fill">
-						<mat-label>Campo</mat-label>
-						<input id="todoInput" matInput type="text" placeholder="separe o valor por ;"
-							[(ngModel)]="value">
-						<button matSuffix mat-icon-button (click)="addValue(1)">
+					<div class="sideInputBtn">
+						<mat-form-field appearance="fill">
+							<mat-label>ITem</mat-label>
+							<input id="todoInput" matInput type="text" placeholder="insira o nome do item"
+								[(ngModel)]="key">
+						</mat-form-field>
+						<button mat-icon-button (click)="hideInputs(1)">
+							<span class="material-icons">
+								remove
+							</span>
+						</button>
+					</div>
+					<div class="sideInputBtn">
+						<mat-form-field appearance="fill">
+							<mat-label>Valor</mat-label>
+							<input id="todoInput" matInput type="text" placeholder="insira o valor aqui"
+								[(ngModel)]="value">
+						</mat-form-field>
+						<button mat-icon-button (click)="addValue(1)">
 							<span class="material-icons">check_circle</span>
 						</button>
-					</mat-form-field>
+					</div>
 				</div>
 			</mat-card-actions>
 		</flip-card-front>
@@ -118,6 +146,11 @@
 				</div>
 			</mat-card-content>
 			<mat-card-actions>
+				<button mat-icon-button class="add" name="inicio" (click)="showInputs(2)">
+					<span class="material-icons">
+						add_circle_outline
+					</span>
+				</button>
 				<div class="actions">
 					<div class="content">
 						R$ {{somaFinale| currency: 'BRL'}}
@@ -127,18 +160,28 @@
 					</div>
 				</div>
 				<div class="inputs">
-					<mat-form-field appearance="fill">
-						<mat-label>Campo</mat-label>
-						<input id="todoInput" matInput type="text" placeholder="separe o valor por ;" [(ngModel)]="key">
-					</mat-form-field>
-					<mat-form-field appearance="fill">
-						<mat-label>Campo</mat-label>
-						<input id="todoInput" matInput type="text" placeholder="separe o valor por ;"
-							[(ngModel)]="value">
-						<button matSuffix mat-icon-button (click)="addValue(2)">
+					<div class="sideInputBtn">
+						<mat-form-field appearance="fill">
+							<mat-label>ITem</mat-label>
+							<input id="todoInput" matInput type="text" placeholder="insira o nome do item"
+								[(ngModel)]="key">
+						</mat-form-field>
+						<button mat-icon-button (click)="hideInputs(2)">
+							<span class="material-icons">
+								remove
+							</span>
+						</button>
+					</div>
+					<div class="sideInputBtn">
+						<mat-form-field appearance="fill">
+							<mat-label>Valor</mat-label>
+							<input id="todoInput" matInput type="text" placeholder="insira o valor aqui"
+								[(ngModel)]="value">
+						</mat-form-field>
+						<button mat-icon-button (click)="addValue(2)">
 							<span class="material-icons">check_circle</span>
 						</button>
-					</mat-form-field>
+					</div>
 				</div>
 			</mat-card-actions>
 		</flip-card-front>

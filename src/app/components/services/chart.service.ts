@@ -10,7 +10,7 @@ Chart.register(ChartDataLabels);
 })
 export class ChartService {
 
-	colorCode: Array<string> = ["#EA6A47", "#1C4E80", "#00ffff", "#AC3E31", "#B3C100", "#A5D8DD", "#DBAE58", "#488A99", "#484848", "#1F3F49", "#DADADA", "#6AB187", "#0091D5", "#CED2BC"];
+	colorCode: Array<string> = ["#488A99", "#EA6A47", "#1C4E80", "#00ffff", "#AC3E31", "#B3C100", "#A5D8DD", "#DBAE58", "#484848", "#1F3F49", "#DADADA", "#6AB187", "#0091D5", "#CED2BC"];
 
 
 	constructor () { }
@@ -64,6 +64,52 @@ export class ChartService {
 							let percentage = (value * 100 / sum).toFixed(2) + "%";
 							return percentage;
 						},
+						color: "#ffffff",
+					}
+				},
+			},
+		});
+		return myChart;
+	}
+
+	renderDonutChart(id: any, labels: any, data: any) {
+		const myChart = new Chart(id, {
+			type: "doughnut",
+			data: {
+				labels: labels,
+				datasets: [{
+					data: data,
+					backgroundColor: this.colorCode,
+					borderColor: ["rgba(40,40,40)"],
+					borderWidth: 1,
+				}],
+			}, options: {
+				responsive: true,
+				scales: {
+					y: {
+						beginAtZero: true,
+						ticks: {
+							display: false
+						},
+						grid: {
+							display: false
+						}
+					},
+					x: {
+						beginAtZero: true,
+						ticks: {
+							display: false
+						},
+						grid: {
+							display: false
+						}
+					},
+				},
+				plugins: {
+					tooltip: {
+						enabled: false
+					},
+					datalabels: {
 						color: "#ffffff",
 					}
 				},

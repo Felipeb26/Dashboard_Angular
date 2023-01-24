@@ -26,21 +26,18 @@ mat-menu {
 	& button {
 		text-transform: capitalize;
 		font-weight: bold;
-		width: 100%;
 		transition: all ease 0.5s;
 	}
 
 	& button:hover {
-		border-bottom: 3px solid var(--contextHover);
-		border-top: 3px solid var(--contextHover);
-		border-left: 2px solid var(--contextHover);
-		border-right: 2px solid var(--contextHover);
+		border: 3px solid var(--contextHover);
 		border-radius: 5px;
+		color: var(--contextHover);
 	}
 }
 
 mat-sidenav-container {
-	height: calc(205vh - 115vh);
+	height: 89.9%;
 
 	& button {
 		color: var(--textColor);
@@ -71,6 +68,5 @@ mat-sidenav {
 
 mat-sidenav-content {
 	background: var(--secondary);
-	// margin: 2rem 0 0 0;
 	padding: 1rem 0 0 0;
 }

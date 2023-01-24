@@ -11,6 +11,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { NgModule, LOCALE_ID } from "@angular/core";
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from "@angular/material/core";
+import { HttpClientModule } from "@angular/common/http"
 //components
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,12 +20,11 @@ import { HeaderComponent } from './components/header/header.component';
 import { DataComponent } from './pages/data/data.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
+import { ValoresComponent } from './pages/valores/valores.component';
 // Modules
 import { FlipCardModule } from "./flip-card/flip-card.module";
-import localePt from "@angular/common/locales/pt";
 import { registerLocaleData } from "@angular/common";
-import { ValoresComponent } from './pages/valores/valores.component';
-import { MatNativeDateModule } from "@angular/material/core";
+import localePt from "@angular/common/locales/pt";
 
 registerLocaleData(localePt);
 @NgModule({
@@ -50,7 +51,8 @@ registerLocaleData(localePt);
 		MatInputModule,
 		FormsModule,
 		MatDatepickerModule,
-		MatNativeDateModule
+		MatNativeDateModule,
+		HttpClientModule,
 	],
 	providers: [
 		{

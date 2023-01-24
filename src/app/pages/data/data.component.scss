@@ -1,3 +1,7 @@
+mat-label{
+	text-transform: capitalize;
+}
+
 .data {
 	width: 100%;
 	display: flex;
@@ -61,12 +65,14 @@ mat-card {
 	flex: 0.5;
 	display: flex;
 	flex-direction: column;
-	& button{
+
+	& button {
 		background: var(--primary);
 		color: var(--secondary);
 		margin: 0 5%;
 	}
-	& mat-form-field{
+
+	& mat-form-field {
 		margin: 1.5rem 0;
 	}
 }
@@ -75,6 +81,19 @@ mat-card {
 	align-items: center;
 	width: 100%;
 	display: flex;
+}
+
+
+.sideInputBtn {
+	width: 100%;
+	display: flex;
+	align-items: top;
+	justify-content: flex-start;
+
+	& button:hover {
+		filter: drop-shadow(0 0 1rem 1rem var(--primary));
+		color: var(--contextHover);
+	}
 }
 
 .inputs {

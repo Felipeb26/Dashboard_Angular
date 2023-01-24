@@ -1,7 +1,7 @@
-import { ConvertsService } from 'src/app/components/services/converts.service';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import { ChartService } from 'src/app/components/services/chart.service';
+import { ConvertsService } from 'src/app/components/services/converts.service';
 
 @Component({
 	selector: 'app-data',
@@ -38,6 +38,8 @@ export class DataComponent implements OnInit {
 	somaTodo: any = 0;
 	somaMadeit: any = 0;
 	somaFinale: any = 0;
+
+	trash: Array<any> = []
 
 	todo: Array<any> = [{
 		comida: "lazanha",
@@ -152,17 +154,30 @@ export class DataComponent implements OnInit {
 
 		this.setValue()
 		this.createCharts()
-		console.log(this.key)
 	}
 
 	reload() {
 		window.location.reload();
 	}
 
+	delete(){
+		console.log(this.trash)
+	}
+
+	searchPerDate() {
+
+	}
+
 	showInputs(event: any) {
-		this.inputs[event].style.display = "";
-		this.actionsInputs[event].style.display = "";
+		this.inputs[event].style.display = "flex";
+		this.actionsInputs[event].style.display = "flex";
 		this.btnShowActions[event].style.display = "none";
+		console.log(event)
+	}
+	hideInputs(event: number) {
+		this.inputs[event].style.display = "none";
+		this.actionsInputs[event].style.display = "none";
+		this.btnShowActions[event].style.display = "flex";
 		console.log(event)
 	}
 }

@@ -5,10 +5,47 @@
 
 	& mat-card {
 		flex: 1;
-		margin:  0 2rem;
+		margin: 1% 2rem;
+	}
+
+	& mat-card-content {
+		width: 20rem;
+	}
+
+	& .data {
+		display: flex;
+		& canvas {
+			flex: 1;
+		}
+	}
+
+	& .dado {
+		display: flex;
+		align-items: baseline;
+		flex-direction: row;
+		justify-items: flex-start;
+
+		& p {
+			text-transform: capitalize;
+			font-weight: 500;
+			margin: 0 0.5rem 0 0;
+		}
+	}
+
+	& .resume {
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		margin: 1rem 0 0 0;
+		border-top:2px solid var(--primary) ;
+		& span {
+			padding: 0.5rem;
+			margin: 0 2%;
+		}
 	}
 }
 
-.year{
-	margin:  5rem 0;
+.year {
+	margin: 5rem 0;
 }
