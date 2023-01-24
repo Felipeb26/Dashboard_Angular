@@ -1,7 +1,10 @@
+import { Cotacao } from './../../components/models/cotacao';
 import { AfterContentInit, Component, OnInit } from '@angular/core';
 import { ChartService } from 'src/app/components/services/chart.service';
 import { CotacaoService } from 'src/app/components/services/cotacao.service';
 import { Cotacao } from './../../model/cotacao';
+import { CotacaoRequestService } from 'src/app/components/services/cotacao-request.service';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-home',
@@ -19,46 +22,9 @@ export class HomeComponent implements OnInit, AfterContentInit {
 
 	constructor (private cotacao: CotacaoService, private chart: ChartService) { }
 
-	ngAfterContentInit(): void {
-		setTimeout(() => {
-			this.createChart()
-		}, 500)
-	}
+  constructor() { }
 
-	ngOnInit(): void {
-		this.cotacaoAtual();
-		// this.cotacaoRefresh();
-	}
-
-
-	cotacaoAtual() {
-		this.cotacao.getCotacao().subscribe((it) => {
-			const json = JSON.parse(JSON.stringify(it));
-			this.cotacoes.push(json.BTCBRL);
-			this.cotacoes.push(json.EURBRL);
-			this.cotacoes.push(json.USDBRL);
-			this.cotacaoValues();
-		});
-	}
-
-	cotacaoValues() {
-		this.cotacoes.forEach((it: any) => {
-			this.ids.push(it.code)
-		})
-		console.log(this.cotacoes)
-	}
-	cotacaoRefresh() {
-		this.cotacoes = [];
-		setInterval(() => {
-			this.cotacaoAtual();
-			window.location.reload();
-		}, 30000);
-	}
-
-	createChart() {
-		this.cotacoes.forEach(it => {
-			this.chart.renderDonutChart(it.code, [it.code], [it.bid])
-		})
-	}
+  ngOnInit(): void {
+  }
 
 }

@@ -1,3 +1,4 @@
+import { Chart } from 'chart.js';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -13,7 +14,7 @@ export class ConvertsService {
 		return array;
 	}
 
-	getValueFromArray(data: Array<any>, value: Array<any>, keys:Array<any>) {
+	getValueFromArray(data: Array<any>, value: Array<any>, keys: Array<any>) {
 		data.map(it => {
 			const data = JSON.parse(JSON.stringify(it));
 			value.push(data.valor);
@@ -21,16 +22,23 @@ export class ConvertsService {
 		});
 	}
 
-	resetValues(value:any){
-		if(value instanceof Array){
+	resetValues(value: any) {
+		if (value instanceof Array<Number>) {
 			return value = [];
 		}
-		if(value instanceof String){
+		if (value instanceof String) {
 			return value = "";
 		}
-		if(value instanceof Number){
+		if (value instanceof Number) {
 			return value = 0;
 		}
-		return;
+		return Array<Number>;
 	}
+
+	toTimestamp = (data: any) => {
+		var date: Date = new Date(data * 1000)
+		const trueData = `${date.toLocaleDateString("pt-br")} ${date.toLocaleTimeString("pt-br")}`
+		return trueData;
+	}
+
 }
