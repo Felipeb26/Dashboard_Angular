@@ -10,6 +10,9 @@
 
 	& mat-card-content {
 		width: 20rem;
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
 	}
 
 	& .data {
@@ -49,4 +52,10 @@
 .year {
 	margin: 5rem 1rem;
 	width: 96%;
+}
+
+
+#BTC,#EUR,#USD{
+	height: 10rem !important;
+	width: 10rem !important;
 }

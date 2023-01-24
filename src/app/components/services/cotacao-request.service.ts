@@ -1,3 +1,4 @@
+import { Type } from 'src/app/model/type';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -12,8 +13,8 @@ export class CotacaoRequestService {
 
 	constructor (private http: HttpClient) { }
 
-	getAllCurrencys(): Observable<Cotacao[]> {
-		return this.http.get<Cotacao[]>(`${this.url}${this.moedas}`);
+	getAllCurrencys(): Observable<Type> {
+		return this.http.get<Type>(`${this.url}${this.moedas}`);
 	}
 
 	getFechamentoPorDias(currency:string,days:number):Observable<Cotacao[]>{

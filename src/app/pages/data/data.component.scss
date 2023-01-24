@@ -9,7 +9,7 @@ mat-label{
 	align-items: center;
 
 	app-flip-card {
-		margin: 1% 0 0 4%;
+		margin: 2rem 5rem 2rem 6rem;
 		flex: 1;
 	}
 
@@ -66,13 +66,19 @@ mat-card {
 	display: flex;
 	flex-direction: column;
 
+	& div{
+		width: 100%;
+		display: flex;
+	}
 	& button {
 		background: var(--primary);
 		color: var(--secondary);
 		margin: 0 5%;
+		flex: 1;
 	}
 
 	& mat-form-field {
+		width: 100%;
 		margin: 1.5rem 0;
 	}
 }

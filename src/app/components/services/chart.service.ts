@@ -88,7 +88,8 @@ export class ChartService {
 					borderWidth: 1,
 				}],
 			}, options: {
-				responsive: true,
+				responsive: false,
+				maintainAspectRatio: false,
 				scales: {
 					y: {
 						beginAtZero: true,
@@ -120,7 +121,7 @@ export class ChartService {
 			},
 		});
 	}
-	
+
 	renderBarChart(high: any, low: any, bid: any, labelDown: any) {
 		high = high.reverse();
 		low = low.reverse();
@@ -135,7 +136,6 @@ export class ChartService {
 		const myChart = new Chart("time", {
 			type: "line",
 			data: {
-
 				labels: this.dateLabel,
 				datasets: [{
 					label: "bid",

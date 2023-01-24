@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartService } from 'src/app/components/services/chart.service';
 import { CotacaoRequestService } from 'src/app/components/services/cotacao-request.service';
-import { CotacaoService } from 'src/app/components/services/cotacao.service';
 import { Cotacao } from './../../components/models/cotacao';
 
 @Component({
@@ -20,7 +19,6 @@ export class HomeComponent implements OnInit {
 
 
 	constructor (
-		private cotacao: CotacaoService,
 		private chart: ChartService,
 		private cotacaoService: CotacaoRequestService) { }
 
@@ -33,17 +31,26 @@ export class HomeComponent implements OnInit {
 
 
 	getCurrency() {
-		this.cotacaoService.getAllCurrencys().subscribe((it:Cotacao[]) => this.cotacoes = it);
+		this.cotacaoService.getAllCurrencys().subscribe((it) => {
+			console.log(it)
+			const json = JSON.parse(JSON.stringify(it));
+			this.cotacoes.push(json.BTCBRL);
+			this.cotacoes.push(json.EURBRL);
+			this.cotacoes.push(json.USDBRL);
+
+			this.chart.renderDonutChart("EUR", [json.EURBRL.code], [json.EURBRL.bid]);
+			this.chart.renderDonutChart("BTC", [json.BTCBRL.code], [json.BTCBRL.bid]);
+			this.chart.renderDonutChart("USD", [json.USDBRL.code], [json.USDBRL.bid]);
+		});
 	}
 
-	check(event: any) {
+	check(event: any,id:string) {
 		const value = event.checked;
 		if (value) {
-			this.nome = "EURBRL";
-		} else {
-			this.nome = "BTCBRL";
+			this.nome = id;
 		}
 		console.log(value)
 		console.log(this.nome)
 	}
+
 }
