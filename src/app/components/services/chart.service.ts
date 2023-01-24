@@ -117,6 +117,10 @@ export class ChartService {
 						color: "#ffffff",
 					}
 				},
+			},
+		});
+	}
+	
 	renderBarChart(high: any, low: any, bid: any, labelDown: any) {
 		high = high.reverse();
 		low = low.reverse();
