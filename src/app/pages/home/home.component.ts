@@ -1,3 +1,4 @@
+import { ConvertsService } from 'src/app/components/services/converts.service';
 import { Component, OnInit } from '@angular/core';
 import { ChartService } from 'src/app/components/services/chart.service';
 import { CotacaoRequestService } from 'src/app/components/services/cotacao-request.service';
@@ -10,6 +11,10 @@ import { Cotacao } from './../../components/models/cotacao';
 })
 export class HomeComponent implements OnInit {
 
+	BITCOIN: boolean = true;
+	EURO: boolean = false;
+	DOLLAR: boolean = false;
+
 	ids: any = [];
 	cotacoes: Cotacao[] = [];
 	bitcoin: any = []
@@ -19,20 +24,17 @@ export class HomeComponent implements OnInit {
 
 
 	constructor (
-		private chart: ChartService,
-		private cotacaoService: CotacaoRequestService) { }
+		private cotacaoService: CotacaoRequestService,
+		private convert: ConvertsService,
+		private chart: ChartService,) { }
 
 	ngOnInit(): void {
 		this.getCurrency();
-		setTimeout(() => {
-			console.log(this.cotacoes);
-		}, 500);
 	}
 
 
 	getCurrency() {
 		this.cotacaoService.getAllCurrencys().subscribe((it) => {
-			console.log(it)
 			const json = JSON.parse(JSON.stringify(it));
 			this.cotacoes.push(json.BTCBRL);
 			this.cotacoes.push(json.EURBRL);
@@ -44,13 +46,24 @@ export class HomeComponent implements OnInit {
 		});
 	}
 
-	check(event: any,id:string) {
+	check(event: any, id: string) {
 		const value = event.checked;
 		if (value) {
 			this.nome = id;
 		}
-		console.log(value)
-		console.log(this.nome)
+		if (id.startsWith("BTC")) {
+			this.BITCOIN = value;
+			this.EURO = false;
+			this.DOLLAR = false;
+		} else if (id.startsWith("EUR")) {
+			this.BITCOIN = false;
+			this.EURO = value;
+			this.DOLLAR = false;
+		} else if (id.startsWith("USD")) {
+			this.BITCOIN = false;
+			this.EURO = false;
+			this.DOLLAR = value;
+		}
 	}
 
 }

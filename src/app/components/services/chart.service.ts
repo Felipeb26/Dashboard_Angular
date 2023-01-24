@@ -15,7 +15,6 @@ export class ChartService {
 
 	reverseColorCode: Array<string> = [];
 
-	dateLabel: Array<string> = [];
 
 	constructor (private convert: ConvertsService) { }
 
@@ -126,19 +125,14 @@ export class ChartService {
 		high = high.reverse();
 		low = low.reverse();
 		bid = bid.reverse();
+		labelDown = labelDown.reverse();
 
-		labelDown.forEach((it: string) => {
-			this.dateLabel.push(this.convert.toTimestamp(it));
-		});
-		console.log(this.dateLabel.length)
-
-		this.dateLabel = this.dateLabel.reverse();
 		const myChart = new Chart("time", {
 			type: "line",
 			data: {
-				labels: this.dateLabel,
+				labels: labelDown,
 				datasets: [{
-					label: "bid",
+					label: "VALOR DE COMPRA",
 					data: bid,
 					backgroundColor: [
 						"rgba(90,90,50,0.2)"
@@ -146,7 +140,7 @@ export class ChartService {
 					borderColor: ["rgba(40,40,40)"],
 				},
 				{
-					label: "high",
+					label: "MAIOR VALOR",
 					data: high,
 					backgroundColor: [
 						"rgba(255, 26, 104, 0.2)"
@@ -157,7 +151,7 @@ export class ChartService {
 					order: 1
 				},
 				{
-					label: "low",
+					label: "MENOR VALOR",
 					data: low,
 					backgroundColor: [
 						"rgba(255, 26, 104, 0.2)"
@@ -174,15 +168,31 @@ export class ChartService {
 				scales: {
 					x: {
 						beginAtZero: true,
-						stacked: true
+						stacked: true,
 					},
 					y: {
 						beginAtZero: true,
-						stacked: true
+						stacked: true,
+						min: 0,
 					}
 				}, plugins: {
 					datalabels: {
 						color: "black",
+					},
+					legend:{
+						labels: {
+							generateLabels: (chart) => {
+								console.log(chart);
+								return chart.data.datasets.map(
+									(dataset,index) =>({
+										text: dataset.label,
+										fillStyle: dataset.backgroundColor,
+										strokeStyle: dataset.borderColor,
+										fontColor: "black",
+									})
+								)
+							}
+						}
 					}
 				}, animations: {
 					tension: {

@@ -14,6 +14,7 @@ export class CotacaoRequestService {
 	constructor (private http: HttpClient) { }
 
 	getAllCurrencys(): Observable<Type> {
+		this.url = this.url.replace("daily","last");
 		return this.http.get<Type>(`${this.url}${this.moedas}`);
 	}
 

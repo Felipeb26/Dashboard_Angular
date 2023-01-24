@@ -1,11 +1,9 @@
-import { Chart } from 'chart.js';
 import { Injectable } from '@angular/core';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class ConvertsService {
-
 
 	constructor () { }
 
@@ -20,19 +18,6 @@ export class ConvertsService {
 			value.push(data.valor);
 			keys.push(data.comida);
 		});
-	}
-
-	resetValues(value: any) {
-		if (value instanceof Array<Number>) {
-			return value = [];
-		}
-		if (value instanceof String) {
-			return value = "";
-		}
-		if (value instanceof Number) {
-			return value = 0;
-		}
-		return Array<Number>;
 	}
 
 	toTimestamp = (data: any) => {

@@ -140,6 +140,11 @@ export class DataComponent implements OnInit {
 	addValue(id: number) {
 		const chave = this.key;
 		const valor = this.value;
+
+		if (chave.trim() == "" || valor.trim() == "") {
+			return;
+		}
+
 		const obj = {
 			comida: chave,
 			valor: Number(valor)
@@ -160,7 +165,7 @@ export class DataComponent implements OnInit {
 		window.location.reload();
 	}
 
-	delete(){
+	delete() {
 		console.log(this.trash)
 	}
 
@@ -172,12 +177,10 @@ export class DataComponent implements OnInit {
 		this.inputs[event].style.display = "flex";
 		this.actionsInputs[event].style.display = "flex";
 		this.btnShowActions[event].style.display = "none";
-		console.log(event)
 	}
 	hideInputs(event: number) {
 		this.inputs[event].style.display = "none";
 		this.actionsInputs[event].style.display = "none";
 		this.btnShowActions[event].style.display = "flex";
-		console.log(event)
 	}
 }

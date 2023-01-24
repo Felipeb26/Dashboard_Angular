@@ -22,26 +22,12 @@ mat-toolbar {
 
 }
 
-mat-menu {
-	& button {
-		text-transform: capitalize;
-		font-weight: bold;
-		transition: all ease 0.5s;
-	}
-
-	& button:hover {
-		border: 3px solid var(--contextHover);
-		border-radius: 5px;
-		color: var(--contextHover);
-	}
-}
-
 mat-sidenav-container {
 	height: 89.9%;
 
 	& button {
 		color: var(--textColor);
-		transition: all ease-in-out 0.5s;
+		transition: all ease 0.5s;
 	}
 
 	& button:hover {

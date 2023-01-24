@@ -4,12 +4,14 @@
 	flex-wrap: wrap;
 
 	& mat-card {
+		background: var(--secondary);
+		color: var(--primary);
 		flex: 1;
 		margin: 1% 2rem;
 	}
 
 	& mat-card-content {
-		width: 20rem;
+		width: 100%;
 		display: flex;
 		align-items: center;
 		justify-content: space-around;
@@ -21,17 +23,19 @@
 			flex: 1;
 		}
 	}
-
-	& .dado {
+	& .dados{
 		display: flex;
-		align-items: baseline;
-		flex-direction: row;
-		justify-items: flex-start;
-
-		& p {
-			text-transform: capitalize;
-			font-weight: 500;
-			margin: 0 0.5rem 0 0;
+		width: 100%;
+		justify-content: space-around;
+		flex-direction: column;
+		& .dado {
+			margin: 0.2rem 0.5rem;
+			display: flex;
+			& p {
+				text-transform: capitalize;
+				font-weight: 550;
+				margin: 0 0.5rem 0 0;
+			}
 		}
 	}
 

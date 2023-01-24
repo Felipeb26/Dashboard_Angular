@@ -27,6 +27,7 @@ import localePt from "@angular/common/locales/pt";
 import { MatNativeDateModule } from "@angular/material/core";
 import { FlipCardModule } from "./flip-card/flip-card.module";
 import { CurrencyComponent } from './shared/component/currency/currency.component';
+import { BrainmapComponent } from './pages/brainmap/brainmap.component';
 
 registerLocaleData(localePt);
 @NgModule({
@@ -38,6 +39,7 @@ registerLocaleData(localePt);
 		DataComponent,
 		ValoresComponent,
 		CurrencyComponent,
+  BrainmapComponent,
 	],
 	imports: [
 		BrowserModule,

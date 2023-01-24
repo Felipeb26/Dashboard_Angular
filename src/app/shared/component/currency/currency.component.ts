@@ -18,7 +18,7 @@ export class CurrencyComponent implements OnChanges {
 	highA: Array<Number> = [];
 	lowA: Array<Number> = [];
 	bidA: Array<Number> = [];
-	labelDown: Array<any> = [];
+	labelDown: Array<string> = [];
 
 	constructor (
 		private cotacaoService: CotacaoRequestService,
@@ -33,8 +33,6 @@ export class CurrencyComponent implements OnChanges {
 	}
 
 	makeRequest() {
-
-		console.log(this.labelDown.length)
 		this.cota = this.cota.replace("BRL", "-BRL");
 		this.cotacaoService.getFechamentoPorDias(this.cota, 15).subscribe((it: Cotacao[]) => {
 			this.resetValues();
@@ -42,7 +40,7 @@ export class CurrencyComponent implements OnChanges {
 				this.highA.push(Number(cot.high));
 				this.lowA.push(Number(cot.low));
 				this.bidA.push(Number(cot.bid));
-				this.labelDown.push(cot.timestamp);
+				this.labelDown.push(this.convert.toTimestamp(cot.timestamp));
 			});
 			this.currency = it[0].name;
 		});
@@ -50,12 +48,12 @@ export class CurrencyComponent implements OnChanges {
 
 	createChart() {
 		this.chart.destoryChart(this.charts);
-		setTimeout(() =>{
+		setTimeout(() => {
 			this.charts = this.chart.renderBarChart(this.highA, this.lowA, this.bidA, this.labelDown);
-		},500);
+		}, 500);
 	}
 
-	resetValues(){
+	resetValues() {
 		this.labelDown = [];
 		this.highA = [];
 		this.lowA = [];
