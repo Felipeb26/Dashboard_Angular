@@ -27,7 +27,6 @@ export class CurrencyComponent implements OnChanges {
 
 
 	ngOnChanges(): void {
-
 		this.makeRequest();
 		this.createChart();
 	}
@@ -49,6 +48,7 @@ export class CurrencyComponent implements OnChanges {
 	createChart() {
 		this.chart.destoryChart(this.charts);
 		setTimeout(() => {
+			this.chart.destoryChart(this.charts);
 			this.charts = this.chart.renderBarChart(this.highA, this.lowA, this.bidA, this.labelDown);
 		}, 500);
 	}

@@ -28,6 +28,9 @@ import { MatNativeDateModule } from "@angular/material/core";
 import { FlipCardModule } from "./flip-card/flip-card.module";
 import { CurrencyComponent } from './shared/component/currency/currency.component';
 import { BrainmapComponent } from './pages/brainmap/brainmap.component';
+import { CreateLoginComponent } from './pages/create-login/create-login.component';
+import { AuthComponent } from './shared/authentication/auth/auth.component';
+import { UserLogComponent } from './pages/user-log/user-log.component';
 
 registerLocaleData(localePt);
 @NgModule({
@@ -40,6 +43,9 @@ registerLocaleData(localePt);
 		ValoresComponent,
 		CurrencyComponent,
   BrainmapComponent,
+  CreateLoginComponent,
+  AuthComponent,
+  UserLogComponent,
 	],
 	imports: [
 		BrowserModule,

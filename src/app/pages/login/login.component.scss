@@ -4,8 +4,10 @@ mat-card {
 	flex-direction: column;
 	height: 35rem;
 	align-items: center;
+	background: var(--secondary);
 
 	& img {
+		box-shadow: 0 0 5px 5px var(--primaryT), inset 0 0 2px 2px var(--primaryT);
 		border: 2px solid var(--primary);
 		border-radius: 50%;
 		object-fit: cover;
@@ -13,11 +15,12 @@ mat-card {
 		width: 20rem;
 	}
 
-	& mat-card-content{
+	& mat-card-content {
 		display: flex;
 		flex-direction: column;
 	}
-	& .saveBtn{
+
+	& .saveBtn {
 		box-shadow: 0 0 0.2rem 0.1rem var(--contextHover);
 		background: var(--primary);
 		color: var(--secondary);
@@ -28,10 +31,22 @@ mat-card-actions {
 	width: 100%;
 	display: flex;
 	justify-content: center;
-	& span{
+
+	& span {
 		margin: 0 2rem;
 		text-decoration: underline;
 		color: rgb(35, 172, 196);
 		cursor: pointer;
+	}
+}
+
+mat-form-field {
+	color: var(--primary);
+	& mat-label{
+		text-transform: uppercase;
+		color: var(--primary);
+	}
+	& input{
+		color: var(--primary);
 	}
 }

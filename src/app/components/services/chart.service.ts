@@ -127,6 +127,8 @@ export class ChartService {
 		bid = bid.reverse();
 		labelDown = labelDown.reverse();
 
+		let fontColor = localStorage.getItem("context");
+
 		const myChart = new Chart("time", {
 			type: "line",
 			data: {
@@ -176,21 +178,18 @@ export class ChartService {
 						min: 0,
 					}
 				}, plugins: {
-					datalabels: {
-						color: "black",
-					},
-					legend:{
+					legend: {
 						labels: {
 							generateLabels: (chart) => {
-								console.log(chart);
-								return chart.data.datasets.map(
-									(dataset,index) =>({
-										text: dataset.label,
-										fillStyle: dataset.backgroundColor,
-										strokeStyle: dataset.borderColor,
-										fontColor: "black",
-									})
-								)
+								return chart.data.datasets.map((dataset, index) => ({
+									text: dataset.label as string,
+									fillStyle: dataset.borderColor as string,
+									strokeStyle: dataset.borderColor as string,
+									fontColor: fontColor ? fontColor : this.colorCode[2] as string,
+									lineWidth: 5,
+									hidden: false,
+									index: 1
+								}))
 							}
 						}
 					}
@@ -200,7 +199,7 @@ export class ChartService {
 						easing: 'linear',
 						from: 1,
 						to: 0,
-						loop: true
+						loop: true,
 					}
 				}
 			},

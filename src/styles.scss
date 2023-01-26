@@ -15,6 +15,7 @@
 	--primaryT: rgba(22, 20, 20, 0.401);
 	--secondary: rgb(242, 242, 242);
 	--contextHover: rgb(0, 165, 165);
+	--contextHoverT: rgba(0, 165, 165, 0.2);
 	// signals
 	--alert: rgb(212, 25, 25);
 	--warninng: rgb(225, 225, 0);
@@ -29,6 +30,7 @@ html[dark] {
 	--primaryT: rgba(184, 184, 184, 0.401);
 	--secondary: rgb(64, 64, 64);
 	--contextHover: rgb(21, 226, 226);
+	--contextHoverT: rgb(21, 226, 226, 0.2);
 	// signals
 	--alert: rgb(255, 0, 0);
 	--warninng: rgb(255, 255, 0);
@@ -79,7 +81,7 @@ body {
 	background: var(--primaryT);
 	border: 2px solid var(--primary);
 	transition: all ease 0.5s;
-	
+
 	& button {
 		letter-spacing: 1px;
 		color: var(--secondary);

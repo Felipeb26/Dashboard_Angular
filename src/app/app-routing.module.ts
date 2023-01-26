@@ -1,18 +1,38 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BrainmapComponent } from './pages/brainmap/brainmap.component';
+import { CreateLoginComponent } from './pages/create-login/create-login.component';
 import { DataComponent } from './pages/data/data.component';
 import { HomeComponent } from "./pages/home/home.component";
 import { LoginComponent } from './pages/login/login.component';
+import { UserLogComponent } from './pages/user-log/user-log.component';
 import { ValoresComponent } from './pages/valores/valores.component';
+import { AuthGuard } from './shared/authentication/auth.guard';
+import { AuthComponent } from './shared/authentication/auth/auth.component';
 
 const routes: Routes = [
-	{ path: "", redirectTo: "home", pathMatch: 'full' },
-	{ path: "home", component: HomeComponent },
-	{ path: "login", component: LoginComponent },
-	{ path: "data", component: DataComponent },
-	{ path: "entrada", component: ValoresComponent },
-	{ path: "mapa-mental", component: BrainmapComponent }
+	{
+		path: "",
+		component: AuthComponent,
+		children: [
+			{ path: "", component: HomeComponent, },
+			{ path: "user", component: UserLogComponent, },
+			{ path: "data", component: DataComponent, },
+			{ path: "entrada", component: ValoresComponent, },
+			{ path: "mapa-mental", component: BrainmapComponent, },
+		],
+		canActivate: [AuthGuard]
+	},
+	{
+		path: "",
+		component: AuthComponent,
+		children: [
+			{ path: "", redirectTo: "login", pathMatch: 'full' },
+			{ path: "login/create", redirectTo: "create", pathMatch: 'full' },
+			{ path: "login", component: LoginComponent },
+			{ path: "create", component: CreateLoginComponent }
+		]
+	}
 ];
 
 @NgModule({

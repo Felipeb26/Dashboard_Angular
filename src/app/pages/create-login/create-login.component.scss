@@ -1,0 +1,97 @@
+.data {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 2rem 0 0 0;
+}
+
+mat-card {
+	flex-direction: column;
+	align-items: center;
+	display: flex;
+	width: 30rem;
+	height: 36.5rem;
+	padding: 2rem;
+	background: var(--secondary);
+	color: var(--primary);
+
+	& mat-card-subtitle {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	& mat-card-content {
+		display: flex;
+		flex-direction: column;
+	}
+
+	& mat-form-field {
+		color: var(--primary);
+		width: 30rem;
+	}
+
+	& mat-label {
+		color: var(--primary);
+	}
+
+	& a {
+		text-decoration: underline;
+		color: var(--contextHover);
+	}
+}
+
+input {
+	display: none;
+}
+
+img {
+	box-shadow: 0 0 5px 5px var(--primaryT), inset 0 0 2px 2px var(--primaryT);
+	border: 2px solid var(--primary);
+	border-radius: 50%;
+	min-width: 250px;
+	min-height: 250px;
+	width: 10rem;
+	height: 10rem;
+	align-items: center;
+	justify-content: center;
+}
+
+label {
+	box-shadow: 0 0 2px 2px var(--primaryT);
+	border: 2px solid var(--primary);
+	border-radius: 5px;
+	padding: 0.1rem;
+	margin: 0.2rem 0.2rem;
+	font-weight: 600;
+	letter-spacing: 0.1rem;
+	color: var(--primary);
+	transition: all ease 0.5s;
+}
+
+label:hover {
+	box-shadow: 0 0 2px 2px var(--contextHover);
+	border: 2px solid var(--contextHover);
+	color: var(--contextHover);
+}
+
+label:active {
+	box-shadow: 0 0 0.5rem 1rem var(--contextHoverT);
+	border: 2px solid var(--primary);
+	color: var(--primary);
+}
+
+button {
+	box-shadow: 0 0 3px 3px var(--contextHoverT);
+	border: 2px solid var(--primary);
+	background: var(--secondary);
+	color: var(--primary);
+	transition: all ease 0.5s;
+}
+
+button:active {
+	box-shadow: 0 0 0.5rem 1rem var(--contextHoverT);
+	border: 2px solid var(--primary);
+	background: var(--contextHover);
+	color: var(--secondary);
+}

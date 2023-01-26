@@ -1,0 +1,41 @@
+<div class="data">
+	<mat-card>
+		<mat-card-header>
+			<img [src]="preview" alt="" mat-card-image>
+		</mat-card-header>
+
+		<mat-card-subtitle>
+			<label mat-button for="img-upload">teste de upload</label>
+			<input type="file" (change)="selectFile($event)" id="img-upload">
+			{{subtitle}}
+		</mat-card-subtitle>
+
+		<mat-card-content>
+
+			<mat-form-field appearance="fill">
+				<input matInput type="text">
+			</mat-form-field>
+
+			<mat-form-field appearance="fill">
+				<input matInput type="text">
+			</mat-form-field>
+
+			<mat-form-field appearance="fill">
+				<input matInput type="text">
+			</mat-form-field>
+
+			<mat-form-field appearance="fill">
+				<input matInput type="text">
+			</mat-form-field>
+		</mat-card-content>
+
+		<mat-card-actions>
+			<mat-checkbox [(ngModel)]="enabled">
+				<a href="#">termos e condições</a>
+			</mat-checkbox>
+			<button mat-button [disabled]="!enabled">salvar</button>
+		</mat-card-actions>
+
+	</mat-card>
+
+</div>

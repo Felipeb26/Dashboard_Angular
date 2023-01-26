@@ -1,5 +1,5 @@
-import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-header',
@@ -14,11 +14,11 @@ export class HeaderComponent implements OnInit {
 	constructor (private route: Router) { }
 
 	ngOnInit(): void {
+		this.checkyStyle();
 	}
 
 	sair() {
 		this.route.navigate(["login"])
-		console.log("saiu")
 	}
 
 	changeState() {
@@ -26,11 +26,25 @@ export class HeaderComponent implements OnInit {
 		if (this.state.startsWith("light")) {
 			html!.setAttribute("dark", "true");
 			localStorage.setItem('dark-mode', "true");
+			localStorage.setItem("context", "#00ffff")
+			window.location.href = "";
 			this.state = "dark";
 		} else {
-			this.state = "light";
+			window.location.href = "";
 			html!.removeAttribute("dark");
+			localStorage.removeItem("context")
 			localStorage.removeItem('dark-mode');
+			this.state = "light";
+		}
+	}
+
+	checkyStyle() {
+		const html = document.querySelector('html')
+		const style = localStorage.getItem("dark-mode");
+		if (style?.startsWith("true")) {
+			html!.setAttribute("dark", "true");
+			localStorage.setItem("context", "#00ffff")
+			this.state = "dark";
 		}
 	}
 
