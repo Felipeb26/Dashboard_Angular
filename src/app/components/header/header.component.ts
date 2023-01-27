@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 	styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
+	actual_url: string = "";
 	opened: boolean = false;
 	state: string = "light"
 
@@ -22,18 +22,19 @@ export class HeaderComponent implements OnInit {
 	}
 
 	changeState() {
+		this.urlAtual();
 		const html = document.querySelector('html')
 		if (this.state.startsWith("light")) {
 			html!.setAttribute("dark", "true");
 			localStorage.setItem('dark-mode', "true");
 			localStorage.setItem("context", "#00ffff")
-			window.location.href = "";
+			window.location.href = this.actual_url;
 			this.state = "dark";
 		} else {
-			window.location.href = "";
-			html!.removeAttribute("dark");
-			localStorage.removeItem("context")
 			localStorage.removeItem('dark-mode');
+			localStorage.removeItem("context")
+			html!.removeAttribute("dark");
+			window.location.href = this.actual_url;
 			this.state = "light";
 		}
 	}
@@ -46,6 +47,11 @@ export class HeaderComponent implements OnInit {
 			localStorage.setItem("context", "#00ffff")
 			this.state = "dark";
 		}
+	}
+
+	urlAtual() {
+		var url_atual = window.location.href;
+		this.actual_url = url_atual.substring(url_atual.lastIndexOf("/"), url_atual.length);
 	}
 
 }

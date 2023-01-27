@@ -2,7 +2,7 @@ import { DragDropModule } from "@angular/cdk/drag-drop";
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { HttpClientModule } from "@angular/common/http";
 import { LOCALE_ID, NgModule } from "@angular/core";
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from "@angular/material/button";
 import { MatCardModule } from "@angular/material/card";
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -42,10 +42,10 @@ registerLocaleData(localePt);
 		DataComponent,
 		ValoresComponent,
 		CurrencyComponent,
-  BrainmapComponent,
-  CreateLoginComponent,
-  AuthComponent,
-  UserLogComponent,
+		BrainmapComponent,
+		CreateLoginComponent,
+		AuthComponent,
+		UserLogComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -65,6 +65,7 @@ registerLocaleData(localePt);
 		MatNativeDateModule,
 		HttpClientModule,
 		MatCheckboxModule,
+		ReactiveFormsModule,
 	],
 	providers: [
 		{

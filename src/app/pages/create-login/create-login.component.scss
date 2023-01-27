@@ -2,7 +2,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	margin: 2rem 0 0 0;
+	margin: 1rem 0 0 0;
 }
 
 mat-card {
@@ -32,6 +32,7 @@ mat-card {
 	}
 
 	& mat-label {
+		text-transform: capitalize;
 		color: var(--primary);
 	}
 
@@ -41,7 +42,7 @@ mat-card {
 	}
 }
 
-input {
+#img-upload {
 	display: none;
 }
 
@@ -53,8 +54,6 @@ img {
 	min-height: 250px;
 	width: 10rem;
 	height: 10rem;
-	align-items: center;
-	justify-content: center;
 }
 
 label {
@@ -82,6 +81,7 @@ label:active {
 }
 
 button {
+	text-transform: uppercase;
 	box-shadow: 0 0 3px 3px var(--contextHoverT);
 	border: 2px solid var(--primary);
 	background: var(--secondary);

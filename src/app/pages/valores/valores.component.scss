@@ -1,14 +1,71 @@
+.content {
+	display: flex;
+	margin: 1.5rem;
+	flex-wrap: wrap;
+}
+
+
 .banks {
-	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
-	align-items: center;
+	flex: 3;
+	width: 50%;
+
 	& mat-card {
+		align-items: flex-start;
+		flex-direction: column;
 		background: var(--secondary);
 		color: var(--primary);
-		position: relative;
-		margin: 0.8rem 0 1rem 3rem;
-		height: 15rem;
-		width: 12rem;
+		height: 17rem;
+		width: 15rem;
+		display: flex;
+		margin: 1rem 0.5rem;
+	}
+}
+
+.card-add-bank {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	background: var(--secondary);
+	width: 25rem;
+	margin: 0 1rem;
+
+	& mat-card-title {
+		text-transform: uppercase;
+		color: var(--primary);
+	}
+
+	& mat-card-content {
+		flex-direction: column;
+		display: flex;
+		width: 100%;
+	}
+
+	& mat-form-field {
+		width: 95%;
+		color: var(--primary);
+	}
+
+	& mat-label {
+		color: var(--primary);
+	}
+
+	& button {
+		text-transform: uppercase;
+		box-shadow: 0 0 5px 2px var(--primary);
+		border: 1px solid var(--secondary);
+		background: var(--primary);
+		color: var(--secondary);
+	}
+
+	& button:active{
+		box-shadow: 0 0 6px 5px var(--contextHover);
+		border: 1px solid var(--primary);
+		background: var(--secondary);
+		color: var(--primary);
+		font-weight: 550;
 	}
 }
