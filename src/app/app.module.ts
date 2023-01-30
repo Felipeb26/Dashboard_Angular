@@ -5,14 +5,15 @@ import { LOCALE_ID, NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from "@angular/material/button";
 import { MatCardModule } from "@angular/material/card";
+import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatCheckboxModule } from "@angular/material/checkbox";
 //components
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,12 +26,14 @@ import { ValoresComponent } from './pages/valores/valores.component';
 import { registerLocaleData } from "@angular/common";
 import localePt from "@angular/common/locales/pt";
 import { MatNativeDateModule } from "@angular/material/core";
+import { CardsComponent } from './components/cards/cards.component';
+import { CurrencyComponent } from './components/currency/currency.component';
+import { TableComponent } from './components/table/table.component';
 import { FlipCardModule } from "./flip-card/flip-card.module";
-import { CurrencyComponent } from './shared/component/currency/currency.component';
 import { BrainmapComponent } from './pages/brainmap/brainmap.component';
 import { CreateLoginComponent } from './pages/create-login/create-login.component';
-import { AuthComponent } from './shared/authentication/auth/auth.component';
 import { UserLogComponent } from './pages/user-log/user-log.component';
+import { AuthComponent } from './shared/authentication/auth/auth.component';
 
 registerLocaleData(localePt);
 @NgModule({
@@ -46,6 +49,8 @@ registerLocaleData(localePt);
 		CreateLoginComponent,
 		AuthComponent,
 		UserLogComponent,
+		TableComponent,
+		CardsComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -66,6 +71,7 @@ registerLocaleData(localePt);
 		HttpClientModule,
 		MatCheckboxModule,
 		ReactiveFormsModule,
+		MatTableModule,
 	],
 	providers: [
 		{

@@ -8,9 +8,6 @@
 
 :root {
 
-	--textColor: rgb(243, 243, 243);
-
-	// colors
 	--primary: rgb(34, 34, 34);
 	--primaryT: rgba(22, 20, 20, 0.401);
 	--secondary: rgb(242, 242, 242);
@@ -23,8 +20,6 @@
 }
 
 html[dark] {
-
-	--textColor: rgb(12, 12, 12);
 
 	--primary: rgb(239, 239, 239);
 	--primaryT: rgba(184, 184, 184, 0.401);
@@ -53,11 +48,11 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-	background: var(--secondary);
+	background: var(--primaryT);
 }
 
 ::-webkit-scrollbar-track {
-	background: var(--primaryT);
+	background: var(--secondary);
 }
 
 .mat-card:not([class*=mat-elevation-z]) {
@@ -100,4 +95,10 @@ body {
 
 .mat-form-field-required-marker {
 	color: var(--primary)
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-out-spin-button{
+	margin: 0;
+	display: none;
 }

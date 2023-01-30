@@ -2,7 +2,7 @@ mat-toolbar {
 	display: flex;
 	justify-content: space-between;
 	background: var(--primary);
-	color: var(--textColor);
+	color: var(--secondary);
 
 	& h1 {
 		text-transform: uppercase;
@@ -26,7 +26,7 @@ mat-sidenav-container {
 	height: 89.9%;
 
 	& button {
-		color: var(--textColor);
+		color: var(--secondary);
 		transition: all ease 0.5s;
 	}
 
@@ -41,10 +41,10 @@ mat-sidenav {
 	width: 10rem;
 	display: flex;
 	background: var(--primaryT);
-	color: var(--textColor);
+	color: var(--secondary);
 
 	& button {
-		border-bottom: 3px solid var(--textColor);
+		border-bottom: 3px solid var(--secondary);
 		text-shadow: 0 0 15px var(--primary);
 		width: 90%;
 		border-radius: 5px;

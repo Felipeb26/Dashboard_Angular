@@ -1,10 +1,11 @@
 export interface Banco {
 	id?: string | number,
 	nome: string,
-	emprestimo: string | number,
-	debito: number | string,
-	credito: number | string,
-	poupanca?: number | string,
+	emprestimo?: number,
+	debito: number ,
+	credito: number ,
+	poupanca?: number,
 	conta?: string | number,
-	agencia?: string | number
+	agencia?: string | number,
+	value?: number
 }

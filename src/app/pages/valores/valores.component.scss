@@ -2,25 +2,7 @@
 	display: flex;
 	margin: 1.5rem;
 	flex-wrap: wrap;
-}
-
-
-.banks {
-	display: flex;
-	flex-wrap: wrap;
-	flex: 3;
-	width: 50%;
-
-	& mat-card {
-		align-items: flex-start;
-		flex-direction: column;
-		background: var(--secondary);
-		color: var(--primary);
-		height: 17rem;
-		width: 15rem;
-		display: flex;
-		margin: 1rem 0.5rem;
-	}
+	width: 95%;
 }
 
 .card-add-bank {
@@ -59,13 +41,86 @@
 		border: 1px solid var(--secondary);
 		background: var(--primary);
 		color: var(--secondary);
+		transition: all ease 0.5s;
+		font-weight: 650;
 	}
 
-	& button:active{
+	& button:hover {
+		box-shadow: 0 0 2px 2px var(--contextHover);
+		background: var(--secondary);
+		color: var(--contextHover);
+	}
+
+	& button:active {
 		box-shadow: 0 0 6px 5px var(--contextHover);
 		border: 1px solid var(--primary);
 		background: var(--secondary);
 		color: var(--primary);
-		font-weight: 550;
+	}
+}
+
+.banks {
+	display: flex;
+	flex-wrap: wrap;
+	flex: 3;
+	width: 50%;
+	flex-direction: column;
+
+	& mat-card {
+		align-items: flex-start;
+		flex-direction: column;
+		background: var(--secondary);
+		color: var(--primary);
+		height: 19rem;
+		width: 25rem;
+		display: flex;
+		margin: 1rem 0.5rem;
+	}
+
+	& mat-card-header {
+		border-bottom: 2px solid var(--primary);
+		margin: 0 0 1rem 0;
+		width: 100%;
+	}
+
+	& mat-card-title {
+		text-transform: capitalize;
+		flex-direction: row;
+		display: flex;
+	}
+
+	& mat-card-content {
+		display: flex;
+		flex-direction: column;
+	}
+
+	& li {
+		text-transform: capitalize;
+		height: 2rem;
+		font-size: 1.1rem;
+	}
+
+}
+
+.banks {
+	& mat-card-actions {
+		justify-content: space-around;
+		align-items: center;
+		display: flex;
+		width: 100%;
+	}
+
+	& button{
+		box-shadow: 0 0 2px 2px var(--primary);
+		border: 2px solid var(--secondary);
+		background: var(--primary);
+		color: var(--secondary);
+		transition: all ease 0.5s;
+	}
+	& button:hover{
+		box-shadow: 0 0 5px 5px var(--contextHover);
+		border: 2px solid var(--primary);
+		background: var(--secondary);
+		color: var(--primary);
 	}
 }

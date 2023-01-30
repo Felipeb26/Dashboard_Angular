@@ -19,6 +19,7 @@ export class ChartService {
 	constructor (private convert: ConvertsService) { }
 
 	renderPieChart(tipo: string, types: any, data: any, labels: any) {
+		let fontColor = localStorage.getItem("context");
 		const myChart = new Chart(tipo, {
 			type: types,
 			data: {
@@ -76,6 +77,7 @@ export class ChartService {
 	}
 
 	renderDonutChart(id: any, labels: any, data: any) {
+		let fontColor = localStorage.getItem("context");
 		const myChart = new Chart(id, {
 			type: "doughnut",
 			data: {
@@ -115,7 +117,7 @@ export class ChartService {
 					},
 					datalabels: {
 						color: "#ffffff",
-					}
+					},
 				},
 			},
 		});

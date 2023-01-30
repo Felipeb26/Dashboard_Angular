@@ -2,7 +2,7 @@ import { Component, Input, OnChanges } from '@angular/core';
 import { ChartService } from 'src/app/components/services/chart.service';
 import { ConvertsService } from 'src/app/components/services/converts.service';
 import { CotacaoRequestService } from 'src/app/components/services/cotacao-request.service';
-import { Cotacao } from './../../../components/models/cotacao';
+import { Cotacao } from '../models/cotacao';
 
 @Component({
 	selector: 'app-currency',
