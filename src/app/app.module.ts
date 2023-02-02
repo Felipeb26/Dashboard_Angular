@@ -1,6 +1,6 @@
 import { DragDropModule } from "@angular/cdk/drag-drop";
 import { ScrollingModule } from '@angular/cdk/scrolling';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { LOCALE_ID, NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from "@angular/material/button";
@@ -14,6 +14,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TokenInterceptorService } from './components/services/token-interceptor.service';
 //components
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -74,9 +75,8 @@ registerLocaleData(localePt);
 		MatTableModule,
 	],
 	providers: [
-		{
-			provide: LOCALE_ID,
-			useValue: "pt-BR",
-		}], bootstrap: [AppComponent]
+		{ provide: LOCALE_ID, useValue: "pt-BR" },
+		{ provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true }],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }

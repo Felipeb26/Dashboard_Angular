@@ -22,8 +22,10 @@ mat-card {
 
 	& .saveBtn {
 		box-shadow: 0 0 0.2rem 0.1rem var(--contextHover);
-		background: var(--primary);
-		color: var(--secondary);
+		background: var(--secondary);
+		color: var(--primary);
+		text-transform: uppercase;
+		font-weight: 650;
 	}
 }
 

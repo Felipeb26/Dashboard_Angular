@@ -14,7 +14,7 @@ export class DataComponent implements OnInit {
 		"app-cards"
 	) as HTMLCollectionOf<HTMLElement>;
 
-	state: string = "space_dashboard";
+	state: string = "table_view";
 
 	list: Array<any> = []
 

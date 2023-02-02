@@ -1,6 +1,8 @@
+import { User } from './../../components/models/user';
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ConvertsService } from 'src/app/components/services/converts.service';
+import { UserRequestService } from 'src/app/components/services/user-request.service';
 import { Banco } from 'src/app/model/banco';
 
 @Component({
@@ -12,20 +14,13 @@ export class ValoresComponent implements OnInit {
 
 	bankForm!: FormGroup
 
-	bancos: Array<Banco> = [{
-		id: 1,
-		nome: "nubank",
-		debito: 1900,
-		credito: 200,
-		emprestimo: 3500,
-		poupanca: 0,
-		agencia: "0001",
-		conta: "0025215141"
-	}]
+	bancos: Array<Banco> = [];
 
-	constructor (private convert: ConvertsService) { }
+	constructor (private convert: ConvertsService,
+		private requests: UserRequestService) { }
 
 	ngOnInit(): void {
+		this.testReq();
 		this.bankForm = new FormGroup({
 			id: new FormControl(""),
 			nome: new FormControl("", [Validators.required]),
@@ -121,5 +116,17 @@ export class ValoresComponent implements OnInit {
 			this.bancos[i].value = conta;
 		}
 	}
+
+	testReq() {
+		this.requests.getUser(encodeURIComponent("felipeb2silva@gmail.com")).subscribe((data: User[]) => {
+			const user: User = data[0];
+
+			console.log(user);
+			user.bancos?.forEach(it =>{
+				this.bancos.push(it);
+			});
+		});
+	}
+
 
 }

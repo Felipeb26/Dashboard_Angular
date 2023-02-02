@@ -1,3 +1,5 @@
+import { UserRequestService } from './../../components/services/user-request.service';
+import { Token } from './../../components/models/token';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -12,7 +14,8 @@ export class LoginComponent implements OnInit {
 	nome: string = "";
 	senha: string = "";
 
-	constructor (private route: Router) { }
+	constructor (private route: Router,
+		private request: UserRequestService) { }
 
 	ngOnInit(): void {
 		this.enterBtn()
@@ -32,10 +35,10 @@ export class LoginComponent implements OnInit {
 			return
 		}
 
-		if (this.nome.startsWith("felipe") && this.senha.startsWith("2626")) {
-			localStorage.setItem("tk","true");
-			this.route.navigate([""]);
-		}
+		this.request.getLoginToken(this.nome, this.senha).subscribe(data => {
+			localStorage.setItem("tk", data.token);
+		})
+
 	}
 
 }
