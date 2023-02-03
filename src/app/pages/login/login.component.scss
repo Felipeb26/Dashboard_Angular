@@ -7,7 +7,7 @@ mat-card {
 	background: var(--secondary);
 
 	& img {
-		box-shadow: 0 0 5px 5px var(--primaryT), inset 0 0 2px 2px var(--primaryT);
+	box-shadow: 0 0 5px 5px var(--primaryT), inset 0 0 2px 2px var(--primaryT);
 		border: 2px solid var(--primary);
 		border-radius: 50%;
 		object-fit: cover;

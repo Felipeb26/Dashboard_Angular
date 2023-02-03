@@ -14,17 +14,30 @@
 
 			<mat-form-field appearance="fill">
 				<mat-label>nome</mat-label>
-				<input matInput type="text">
+				<input matInput type="text" [(ngModel)]="nome">
 			</mat-form-field>
 
 			<mat-form-field appearance="fill">
 				<mat-label>email</mat-label>
-				<input matInput type="email">
+				<input matInput type="email" [(ngModel)]="email">
+			</mat-form-field>
+
+			<mat-form-field appearance="fill">
+				<mat-label>Choose a date</mat-label>
+				<input matInput [matDatepicker]="picker" [(ngModel)]="data">
+				<mat-hint>DD/MM/YYYY</mat-hint>
+				<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+				<mat-datepicker #picker></mat-datepicker>
 			</mat-form-field>
 
 			<mat-form-field appearance="fill">
 				<mat-label>senha</mat-label>
-				<input matInput type="password">
+				<input matInput [type]="hide ? 'text' : 'password'" [(ngModel)]="senha">
+				<button class="icon" matSuffix mat-icon-button (click)="hide =!hide">
+					<span class="material-icons">
+						{{hide ? 'visibility_off': 'visibility'}}
+					</span>
+				</button>
 			</mat-form-field>
 		</mat-card-content>
 
@@ -32,7 +45,7 @@
 			<mat-checkbox [(ngModel)]="enabled">
 				<a href="#">termos e condições</a>
 			</mat-checkbox>
-			<button mat-button [disabled]="!enabled">salvar</button>
+			<button mat-button [disabled]="!enabled" (click)="saveUser()">salvar</button>
 		</mat-card-actions>
 
 	</mat-card>

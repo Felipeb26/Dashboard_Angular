@@ -1,8 +1,8 @@
-import { ConvertsService } from 'src/app/components/services/converts.service';
 import { Component, OnInit } from '@angular/core';
-import { ChartService } from 'src/app/components/services/chart.service';
-import { CotacaoRequestService } from 'src/app/components/services/cotacao-request.service';
-import { Cotacao } from './../../components/models/cotacao';
+import { ChartService } from 'src/app/services/chart.service';
+import { CotacaoRequestService } from 'src/app/services/cotacao-request.service';
+import { Cotacao } from '../../models/cotacao';
+import { Type } from '../../models/types';
 
 @Component({
 	selector: 'app-home',
@@ -17,33 +17,22 @@ export class HomeComponent implements OnInit {
 
 	ids: any = [];
 	cotacoes: Cotacao[] = [];
-	bitcoin: any = []
-	euro: any = []
-	dollar: any = []
+	codes: Array<any> = []
+	bids: Array<any> = []
 	nome: string = "BTCBRL"
+
+	EURBRL: Array<any> = [];
+	BTCBRL: Array<any> = [];
+	USDBRL: Array<any> = [];
 
 
 	constructor (
+		private cotacaoRequest: CotacaoRequestService,
 		private cotacaoService: CotacaoRequestService,
-		private convert: ConvertsService,
 		private chart: ChartService,) { }
 
 	ngOnInit(): void {
 		this.getCurrency();
-	}
-
-
-	getCurrency() {
-		this.cotacaoService.getAllCurrencys().subscribe((it) => {
-			const json = JSON.parse(JSON.stringify(it));
-			this.cotacoes.push(json.BTCBRL);
-			this.cotacoes.push(json.EURBRL);
-			this.cotacoes.push(json.USDBRL);
-
-			this.chart.renderDonutChart("EUR", [json.EURBRL.code], [json.EURBRL.bid]);
-			this.chart.renderDonutChart("BTC", [json.BTCBRL.code], [json.BTCBRL.bid]);
-			this.chart.renderDonutChart("USD", [json.USDBRL.code], [json.USDBRL.bid]);
-		});
 	}
 
 	check(event: any, id: string) {
@@ -64,6 +53,24 @@ export class HomeComponent implements OnInit {
 			this.EURO = false;
 			this.DOLLAR = value;
 		}
+	}
+
+	getCurrency() {
+		this.cotacaoRequest.getCurrency().subscribe((data: Type[]) => {
+			data.forEach(it => {
+				this.cotacoes.push(it.cotacao);
+				this.codes.push(it.cotacao.code);
+				this.bids.push(it.cotacao.bid);
+
+				if (it.currency.startsWith("USDBRL")) {
+					this.chart.renderDonutChart("USD", [it.cotacao.code], [it.cotacao.bid]);
+				} else if (it.currency.startsWith("EURBRL")) {
+					this.chart.renderDonutChart("EUR", [it.cotacao.code], [it.cotacao.bid]);
+				} else if (it.currency.startsWith("BTCBRL")) {
+					this.chart.renderDonutChart("BTC", [it.cotacao.code], [it.cotacao.bid]);
+				}
+			});
+		});
 	}
 
 }

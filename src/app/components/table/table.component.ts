@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges } from '@angular/core';
-import { ConvertsService } from 'src/app/components/services/converts.service';
+import { ConvertsService } from 'src/app/services/converts.service';
 
 @Component({
 	selector: 'app-table',

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UserRequestService } from 'src/app/components/services/user-request.service';
+import { User } from 'src/app/models/user';
+import { UserRequestService } from 'src/app/services/user-request.service';
+import { Banco } from '../../models/banco';
 
 @Component({
 	selector: 'app-user-log',
@@ -7,20 +9,34 @@ import { UserRequestService } from 'src/app/components/services/user-request.ser
 	styleUrls: ['./user-log.component.scss']
 })
 export class UserLogComponent implements OnInit {
+	foto: string = "";
+	user!: User;
+	bancos!: Banco[];
 
-	constructor (private requests:UserRequestService) { }
+	enable: string = "disabled";
+
+	constructor (private requests: UserRequestService) { }
 
 	ngOnInit(): void {
 		this.getUserNow()
 	}
 
 
-	getUserNow(){
-		const user = encodeURIComponent("felipeb2silva@gmail.com");
+	getUserNow() {
+		const email = encodeURIComponent("felipeb2silva@gmail.com");
 
-		this.requests.getUser(user).subscribe((data:any) =>{
-			console.log(data)
-		})
+		this.requests.getUser(email).subscribe((data: User[]) => {
+			this.user = data[0];
+			this.bancos = this.user.bancos!;
+		});
+	}
+
+	enableUpdate() {
+		if (this.enable.startsWith("false")) {
+			this.enable = "disabled"
+		} else {
+			this.enable = "false";
+		}
 	}
 
 }

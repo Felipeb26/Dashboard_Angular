@@ -1,5 +1,5 @@
-import { UserRequestService } from './../../components/services/user-request.service';
-import { Token } from './../../components/models/token';
+import { UserRequestService } from '../../services/user-request.service';
+import { Token } from '../../models/token';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 	image: string = "assets/imgs/user_default.png"
 
+	hide:boolean=true;
 	nome: string = "";
 	senha: string = "";
 
@@ -35,7 +36,7 @@ export class LoginComponent implements OnInit {
 			return
 		}
 
-		this.request.getLoginToken(this.nome, this.senha).subscribe(data => {
+		this.request.getLoginToken(encodeURIComponent(this.nome), this.senha).subscribe(data => {
 			localStorage.setItem("tk", data.token);
 		})
 

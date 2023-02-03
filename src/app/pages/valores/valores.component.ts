@@ -1,9 +1,10 @@
-import { User } from './../../components/models/user';
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ConvertsService } from 'src/app/components/services/converts.service';
-import { UserRequestService } from 'src/app/components/services/user-request.service';
-import { Banco } from 'src/app/model/banco';
+import { ConvertsService } from 'src/app/services/converts.service';
+import { ToastsService } from 'src/app/services/toasts.service';
+import { UserRequestService } from 'src/app/services/user-request.service';
+import { Banco } from '../../models/banco';
+import { User } from '../../models/user';
 
 @Component({
 	selector: 'app-valores',
@@ -16,11 +17,13 @@ export class ValoresComponent implements OnInit {
 
 	bancos: Array<Banco> = [];
 
-	constructor (private convert: ConvertsService,
+	constructor (
+		private toast: ToastsService,
+		private convert: ConvertsService,
 		private requests: UserRequestService) { }
 
 	ngOnInit(): void {
-		this.testReq();
+		this.bringBanks();
 		this.bankForm = new FormGroup({
 			id: new FormControl(""),
 			nome: new FormControl("", [Validators.required]),
@@ -45,6 +48,7 @@ export class ValoresComponent implements OnInit {
 		const agencia = <FormArray>this.bankForm.controls["agencia"];
 
 		if (this.bankForm.invalid) {
+			this.toast.error("valores invalidos!")
 			return;
 		}
 
@@ -63,16 +67,34 @@ export class ValoresComponent implements OnInit {
 			this.bancos.splice(index, 1, object);
 			this.resetFormValues();
 			this.setTotalValue();
+			this.toast.sucess("banco atualizado!")
+			this.salvarBanco()
+			return;
 		}
 
 		if (this.bancos.findIndex(it => it.nome === nome.value) > -1) {
-			this.setTotalValue();
+			const index = this.bancos.findIndex(it => it.nome === nome.value);
+			const object = {
+				id: id.value,
+				nome: nome.value,
+				emprestimo: emprestimo.value,
+				debito: debito.value,
+				credito: credito.value,
+				poupanca: poupaca.value,
+				conta: conta.value,
+				agencia: agencia.value
+			}
+			this.bancos.splice(index, 1, object);
 			this.resetFormValues();
+			this.setTotalValue();
+			this.toast.sucess("banco atualizado!");
+			this.salvarBanco()
 			return;
 		} else {
 			this.bancos.push(this.bankForm.value);
 			this.setTotalValue();
 			this.resetFormValues();
+			this.toast.sucess("banc adicionado")
 		}
 	}
 
@@ -82,6 +104,7 @@ export class ValoresComponent implements OnInit {
 	}
 
 	editBankInfo(event: Banco) {
+		this.toast.infoT("altere os itens á esquerda!", "Atualização")
 		this.bankForm.setValue({
 			id: event.id,
 			nome: event.nome,
@@ -117,16 +140,18 @@ export class ValoresComponent implements OnInit {
 		}
 	}
 
-	testReq() {
+	bringBanks() {
 		this.requests.getUser(encodeURIComponent("felipeb2silva@gmail.com")).subscribe((data: User[]) => {
 			const user: User = data[0];
-
-			console.log(user);
-			user.bancos?.forEach(it =>{
+			user.bancos?.forEach(it => {
 				this.bancos.push(it);
 			});
+			this.setTotalValue();
 		});
 	}
 
+	salvarBanco() {
+		console.log(this.bancos)
+	}
 
 }

@@ -34,4 +34,13 @@ export class ConvertsService {
 		});
 		return formatter.format(value);
 	}
+
+	emailIsValid(value: string): boolean {
+		let regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+		if (value.match(regex)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }

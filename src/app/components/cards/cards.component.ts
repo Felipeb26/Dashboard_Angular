@@ -1,7 +1,7 @@
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
-import { ChartService } from '../services/chart.service';
-import { ConvertsService } from '../services/converts.service';
+import { ChartService } from '../../services/chart.service';
+import { ConvertsService } from '../../services/converts.service';
 
 @Component({
 	selector: 'app-cards',

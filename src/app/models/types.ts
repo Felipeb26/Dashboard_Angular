@@ -1,5 +1,6 @@
 import { Cotacao } from "./cotacao";
 
 export interface Type {
-	type: Array<Cotacao>
+	currency:string,
+	cotacao: Cotacao
 }

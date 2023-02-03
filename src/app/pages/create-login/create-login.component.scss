@@ -16,9 +16,11 @@ mat-card {
 	color: var(--primary);
 
 	& mat-card-subtitle {
-		display: flex;
-		align-items: center;
 		justify-content: space-between;
+		align-items: center;
+		display: flex;
+		color: var(--primary);
+		font-size: 1rem;
 	}
 
 	& mat-card-content {
@@ -50,8 +52,8 @@ img {
 	box-shadow: 0 0 5px 5px var(--primaryT), inset 0 0 2px 2px var(--primaryT);
 	border: 2px solid var(--primary);
 	border-radius: 50%;
-	min-width: 250px;
-	min-height: 250px;
+	min-width: 12rem;
+	min-height: 12rem;
 	width: 10rem;
 	height: 10rem;
 }
@@ -61,8 +63,8 @@ label {
 	border: 2px solid var(--primary);
 	border-radius: 5px;
 	padding: 0.1rem;
-	margin: 0.2rem 0.2rem;
-	font-weight: 600;
+	margin: 0.2rem 0;
+	font-weight: 500;
 	letter-spacing: 0.1rem;
 	color: var(--primary);
 	transition: all ease 0.5s;
@@ -80,18 +82,28 @@ label:active {
 	color: var(--primary);
 }
 
-button {
-	text-transform: uppercase;
-	box-shadow: 0 0 3px 3px var(--contextHoverT);
-	border: 2px solid var(--primary);
-	background: var(--secondary);
-	color: var(--primary);
-	transition: all ease 0.5s;
-}
 
-button:active {
-	box-shadow: 0 0 0.5rem 1rem var(--contextHoverT);
-	border: 2px solid var(--primary);
-	background: var(--contextHover);
-	color: var(--secondary);
+mat-card-actions {
+	& button {
+		text-transform: uppercase;
+		box-shadow: 0 0 3px 3px var(--primary);
+		border: 2px solid var(--secondary);
+		background: var(--primary);
+		color: var(--secondary);
+		transition: all ease 0.5s;
+		font-weight: 550;
+	}
+
+	& button:hover {
+		box-shadow: 0 0 0.5rem 0.5rem var(--contextHoverT);
+		border: 2px solid var(--primary);
+		background: var(--contextHover);
+		color: var(--secondary);
+	}
+	& button:active {
+		box-shadow: 0 0 0.5rem 1rem var(--contextHoverT);
+		border: 2px solid var(--primary);
+		background: var(--contextHover);
+		color: var(--secondary);
+	}
 }
